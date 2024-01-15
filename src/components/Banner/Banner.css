@@ -1,0 +1,40 @@
+.banner {
+    margin: 300px 0 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner-main {
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-content {
+    width: 370px;
+    height: 290px;
+}
+
+.banner-text,
+.banner-text2 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.text {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.paragraph {
+    font-size: 18px;
+    font-weight: normal;
+    color: #929292;
+}
+
+.banner-img {
+    display: flex;
+    justify-content: center;
+}

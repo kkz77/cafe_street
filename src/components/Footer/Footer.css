@@ -1,0 +1,94 @@
+.footer {
+  background-image: url("./src/assets/img/footer-img.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 392px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  margin: 50px 0 20px 0;
+}
+
+.footer>.title {
+  color: #fff;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.end-footer { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 100px;
+  background: #F9D9AA;
+}
+
+.footer-logo{
+  margin-right: 150px;
+}
+
+.footer-title{
+  padding: 5px 0;
+}
+
+.footer-title a{
+  font-size: 18px;
+  color:#2F2105;
+  font-weight: 600;
+}
+
+.footer-title a:hover{
+  color: #fff;
+}
+
+.footer-links{
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 440px;
+  border-radius: 25px;
+}
+
+.input-box>.email {
+  flex-grow: 2;
+  height: 50px;
+  padding: 0 20px;
+  font-weight: 600;
+  font-family: 'Poppins';
+  position: relative;
+  border-radius: 25px;
+  border: none;
+}
+
+.input-box>.submit {
+  all: unset;
+  margin-left: -126px;
+  color: #fff;
+  font-size: 14px;
+  background-color: #2F2105;
+  padding: 15px 23px;
+  border-radius: 25px;
+  font-weight: 600;
+  border: 1px solid #2F2105;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.input-box>.submit:hover {
+  color: #2F2105;
+  border: 1px solid #2F2105;
+  background-color: #fff;
+  transition: 0.4s;
+}
+
+input:focus {
+  outline: none;
+}

@@ -1,0 +1,26 @@
+.comments-card {
+    position: relative;
+}
+
+.comments-card-text {
+    position: absolute;
+    background: #FFCB7C;
+    border: 5px solid #FFD390;
+    margin: 0 0 0 40px;
+    right: -40px;
+    bottom: 25px;
+    line-height: normal;
+    padding: 10px 5px;
+    border-radius: 10px;
+}
+
+.comments-text-title,
+.comments-text-p {
+    color: #000000;
+
+}
+
+.comments-text-p {
+    font-size: 14px;
+    font-weight: 400;
+}
