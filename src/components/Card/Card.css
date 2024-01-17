@@ -21,8 +21,8 @@
   .card .rating {
     position: absolute;
     top: 35px;
-    color: #000000;
     left: 30px;
+    color: #000000;
     border-radius: 25px;
     background: #fff;
     padding: 5px 10px;

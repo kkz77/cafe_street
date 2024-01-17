@@ -1,6 +1,7 @@
 import "../App.css"
 import Banner from "../components/Banner/Banner"
 import Card from "../components/Card/Card"
+import Img_Hero from "../components/Img-Hero/Img_Hero"
 export default function HomePage() {
     return (
         <>
@@ -25,9 +26,7 @@ export default function HomePage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="img-hero">
-                            <img src="./src/assets/img/img-hero.png" alt="coffee image" />
-                        </div>
+                        <Img_Hero rating={"4.9"} name={"Cappuccino"} price={"28k"} />
                     </div>
                     <div className="popular-content">
                         <div className="title">Popular <span>Now</span></div>

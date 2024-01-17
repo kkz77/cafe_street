@@ -1,0 +1,40 @@
+.img-hero {
+    position: relative;
+}
+
+.img-hero img {
+    width: 416px;
+}
+
+.img-hero-rating,
+.img-hero-name,
+.img-hero-price {
+    position: absolute;
+    color: #000000;
+    border-radius: 40px;
+    background: #fff;
+    padding: 25px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.img-hero-rating {
+    top: 60px;
+    right: -15px;
+}
+
+.img-hero-rating > span {
+    color: #ffd057;
+    padding-left: 5px;
+}
+
+.img-hero-name {
+    top: 25px;
+    left: -50px;
+}
+
+.img-hero-price {
+    bottom: 35px;
+    left: 20px;
+}
