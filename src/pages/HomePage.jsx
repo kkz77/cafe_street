@@ -2,7 +2,9 @@ import "../App.css"
 import Banner from "../components/Banner/Banner"
 import Card from "../components/Card/Card"
 import Img_Hero from "../components/Img-Hero/Img_Hero"
+import { useMenu } from "../layouts/BaseLayout"
 export default function HomePage() {
+    const menu = useMenu()
     return (
         <>
             <div id='home' className="main-bg-img">
@@ -31,9 +33,9 @@ export default function HomePage() {
                     <div className="popular-content">
                         <div className="title">Popular <span>Now</span></div>
                         <div className="cards">
-                            <Card rating={"4.8"} name={"Vanilla Latte"} price={"21k"} img={"img_product.png"} />
-                            <Card rating={"4.7"} name={"Espresso"} price={"12k"} img={"img_product2.png"} />
-                            <Card rating={"4.9"} name={"HazeInut Latte"} price={"23k"} img={"img_product3.png"} />
+                            {menu ?
+                                (menu.map((m) => <Card rating={"4.9"} name={m.name} price={m.price} img={m.image} description={m.description} />))
+                                : ("No item in the menu list")}
                         </div>
                     </div>
                 </div>
