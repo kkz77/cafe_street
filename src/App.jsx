@@ -1,10 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
+import { Layout } from './layouts/BaseLayout'
 import HomePage from './pages/HomePage'
-import Layout from './layouts/BaseLayout'
 import MenuPage from './pages/MenuPage'
 import ReviewPage from './pages/ReviewPage'
 import AboutPage from './pages/AboutPage'
+import LoginPage from './pages/LoginPage/LoginPage'
+import RegisterPage from './pages/RegisterPage/RegisterPage'
+import DashboardPage from './pages/DashboardPage/DashboardPage'
 
 function App() {
   return (
@@ -12,10 +15,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />} >
-            <Route path="/" element={<HomePage/>} />
-            <Route path="/about" element={<AboutPage/>} />
-            <Route path="/menu" element={<MenuPage/>} />
-            <Route path="/review" element={<ReviewPage/>} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/menu" element={<MenuPage />} />
+            <Route path="/review" element={<ReviewPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path='/dashboard' element={<DashboardPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
