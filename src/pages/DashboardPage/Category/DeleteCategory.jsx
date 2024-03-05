@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-export default function DeleteMenu() {
+export default function DeleteCategory() {
     const {id} = useParams() 
     console.log(id)
     // Define an async function to delete the menu item
@@ -9,7 +9,7 @@ export default function DeleteMenu() {
         try{
             const token = window.localStorage.getItem('token')
             axios.delete(
-                `https://bubble-tea-cafe-api-production.up.railway.app/api/menu/${id}`,
+                `https://bubble-tea-cafe-api-production.up.railway.app/api/category/${id}`,
                 {
                     headers:{
                         Authorization: `${token}`

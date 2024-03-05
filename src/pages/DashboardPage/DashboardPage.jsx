@@ -1,38 +1,28 @@
-import { useMenu } from '../../layouts/BaseLayout'
-import axios from 'axios';
+import { useCategory, useMenu } from '../../layouts/BaseLayout'
 import './DashboardPage.css'
 import { Link } from 'react-router-dom';
 
 export default function DashboardPage() {
     const menu = useMenu() 
-    const handleDelete = async (itemId) => {
-        try {
-            // Send a DELETE request to the API endpoint with the item ID
-            const token = window.localStorage.getItem('token')
-            const response = await axios.delete(`https://bubble-tea-cafe-api-production.up.railway.app/api/menu/${itemId}`,
-                {
-                    headers: {
-                        Authorization: `${token}`
-                    }
-                }
-            ).then(() => {
-                window.location.href = "/dashboard"
-            });
-            console.log('Item deleted successfully:', response.data);
-        } catch (error) {
-            console.error('Error deleting item:', error);
-        }
-    };
-
+    const category = useCategory()
     return (
         <>
             <div>
                 <h2>All Menu</h2>
                     {console.log(menu)}
                     {menu ? menu.map((m) => <div key={`${m.Id}`} style={{ color: '#000' }}>{m.name}
-                        <button onClick={() => handleDelete(m.Id)}>Delete</button>
-                        <button><Link to={`/editMenu/${m.Id}`}>Edit</Link></button>
+                        <button><Link to={`/menu/deleteMenu/${m.Id}`} style={{color:'#000'}}>Delete</Link></button>
+                        <button><Link to={`/menu/editMenu/${m.Id}`} style={{color:'#000'}} >Edit</Link></button>
                     </div>) : (<div></div>)}
+            </div>
+            <div>
+                <h2>All Category</h2>
+                {console.log(category)}
+                {category ? category.map((c)=> <div key={`${c.Id}`} style={{color:"#000"}}>
+                    {c.name}
+                    <button><Link to={`/category/editCategory/${c.Id}`} style={{color:'#000'}}>Edit</Link></button>
+                    <button><Link to={`/category/deleteCategory/${c.Id}`} style={{color:'#000'}}>Delete</Link></button>
+                </div>):(<></>)}
             </div>
         </>
     )

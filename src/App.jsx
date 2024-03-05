@@ -11,6 +11,10 @@ import DashboardPage from './pages/DashboardPage/DashboardPage'
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage'
 import CreateMenu from './pages/DashboardPage/Menu/CreateMenu'
 import EditMenu from './pages/DashboardPage/Menu/EditMenu'
+import DeleteMenu from './pages/DashboardPage/Menu/DeleteMenu'
+import CreateCategory from './pages/DashboardPage/Category/CreateCategory'
+import EditCategory from './pages/DashboardPage/Category/EditCategory'
+import DeleteCategory from './pages/DashboardPage/Category/DeleteCategory'
 
 function App() {
   return (
@@ -25,8 +29,12 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path='/dashboard' element={<DashboardPage />} />
-            <Route path='/createMenu' element={<CreateMenu />} />
-            <Route path='/editMenu/:id' element={<EditMenu />} />
+            <Route path='/menu/createMenu' element={<CreateMenu />} />
+            <Route path='/menu/editMenu/:id' element={<EditMenu />} />
+            <Route path='/menu/deleteMenu/:id' element={<DeleteMenu />} />
+            <Route path='/category/createCategory' element={<CreateCategory/>} />
+            <Route path='/category/editCategory/:id' element={<EditCategory/>} />
+            <Route path='/category/deleteCategory/:id' element={<DeleteCategory/>} />
             <Route path='/user' element={<UserProfilePage />} />
           </Route>
         </Routes>
