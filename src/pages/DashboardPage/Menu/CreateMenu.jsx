@@ -93,8 +93,8 @@ export default function CreateMenu() {
                         required
                     />
 
-
                     <button className="create-menu-button" type="submit">Add Menu Item</button>
+                    <button className="del-button"></button>
                 </form>
             </div >
         </>

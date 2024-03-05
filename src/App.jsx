@@ -9,7 +9,7 @@ import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
 import DashboardPage from './pages/DashboardPage/DashboardPage'
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage'
-import CreateMenu from './pages/DashboardPage/CreateMenu/CreateMenu'
+import CreateMenu from './pages/DashboardPage/Menu/CreateMenu'
 
 function App() {
   return (
