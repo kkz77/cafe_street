@@ -1,9 +1,13 @@
 import axios from "axios"
 import './CreateMenu.css'
-import { useState } from "react"
-import { useCategory } from "../../../layouts/BaseLayout"
+import { useEffect,useState } from "react"
+import { useCategory, useMenu } from "../../../layouts/BaseLayout"
+import { useParams } from "react-router-dom"
 
-export default function CreateMenu() {
+export default function EditMenu() {
+    const { id } = useParams()
+    console.log(id)
+    const menu = useMenu()
     const category = useCategory()
     const [formData, setFormData] = useState({
         name: "",
@@ -12,6 +16,23 @@ export default function CreateMenu() {
         category: "",
         image: ""
     })
+
+    useEffect(() => {
+        if (menu) {
+            const menuItem = menu.find(m => m.Id == id);
+            if (menuItem) {
+                setFormData({
+                    name: menuItem.name,
+                    description: menuItem.description,
+                    price: menuItem.price,
+                    category: menuItem.category,
+                    image: menuItem.image
+                });
+            }
+        }
+    }, [menu, id]); 
+
+    console.log("FormData",formData)
 
     const handleChange = (e) => {
         const value = e.target.value
@@ -34,8 +55,8 @@ export default function CreateMenu() {
         };
         try {
             const token = window.localStorage.getItem('token')
-            axios.post(
-                "https://bubble-tea-cafe-api-production.up.railway.app/api/menu",
+            axios.put(
+                `https://bubble-tea-cafe-api-production.up.railway.app/api/menu/${id}`,
                 menuData, {
                 headers: {
                     Authorization: `${token}`
@@ -79,7 +100,7 @@ export default function CreateMenu() {
                         onChange={handleChange}
                         required>
                         <option value="">Select Category</option>
-                        {category ? (category.map((c) => <option value={`${c.name}`}>{c.name}</option>)) : ("")}
+                        {category ? (category.map((c) => <option key={`${c.Id}`} value={`${c.name}`}>{c.name}</option>)) : ("")}
                     </select>
 
                     <label className="create-menu-label" htmlFor="imageURL">Image URL:</label>
@@ -94,7 +115,6 @@ export default function CreateMenu() {
                     />
 
                     <button className="create-menu-button" type="submit">Add Menu Item</button>
-                    <button className="del-button"></button>
                 </form>
             </div >
         </>

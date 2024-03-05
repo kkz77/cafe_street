@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useUserProfile } from '../../layouts/BaseLayout'
 import './Navbar.css'
 import { redirect } from 'react-router-dom'

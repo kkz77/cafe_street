@@ -1,6 +1,6 @@
 import axios from "axios"
 import './CreateMenu.css'
-import { useEffect, useMemo, useState } from "react"
+import { useState } from "react"
 import { useCategory } from "../../../layouts/BaseLayout"
 
 export default function CreateMenu() {
@@ -79,7 +79,7 @@ export default function CreateMenu() {
                         onChange={handleChange}
                         required>
                         <option value="">Select Category</option>
-                        {category ? (category.map((c) => <option value={`${c.name}`}>{c.name}</option>)) : ("")}
+                        {category ? (category.map((c) => <option key={`${c.Id}`} value={`${c.name}`}>{c.name}</option>)) : ("")}
                     </select>
 
                     <label className="create-menu-label" htmlFor="imageURL">Image URL:</label>
@@ -94,7 +94,6 @@ export default function CreateMenu() {
                     />
 
                     <button className="create-menu-button" type="submit">Add Menu Item</button>
-                    <button className="del-button"></button>
                 </form>
             </div >
         </>

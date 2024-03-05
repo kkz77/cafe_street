@@ -10,6 +10,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage'
 import DashboardPage from './pages/DashboardPage/DashboardPage'
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage'
 import CreateMenu from './pages/DashboardPage/Menu/CreateMenu'
+import EditMenu from './pages/DashboardPage/Menu/EditMenu'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path='/dashboard' element={<DashboardPage />} />
             <Route path='/createMenu' element={<CreateMenu />} />
+            <Route path='/editMenu/:id' element={<EditMenu />} />
             <Route path='/user' element={<UserProfilePage />} />
           </Route>
         </Routes>
