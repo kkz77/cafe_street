@@ -1,7 +1,6 @@
-export default function DashboardPage(){
-    return(
-    <>
-        This is dashboard
-    </>
-    )
+
+import './DashboardPage.css'
+
+export default function DashboardPage() {
+    
 }

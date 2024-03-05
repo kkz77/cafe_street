@@ -34,7 +34,7 @@ export default function HomePage() {
                         <div className="title">Popular <span>Now</span></div>
                         <div className="cards">
                             {menu ?
-                                (menu.map((m) => <Card rating={"4.9"} name={m.name} price={m.price} img={m.image} description={m.description} />))
+                                (menu.slice(-3).map((m) => <Card rating={"4.9"} name={m.name} price={m.price} img={m.image} description={m.description} />))
                                 : ("No item in the menu list")}
                         </div>
                     </div>

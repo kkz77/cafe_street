@@ -8,6 +8,8 @@ import AboutPage from './pages/AboutPage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
 import DashboardPage from './pages/DashboardPage/DashboardPage'
+import UserProfilePage from './pages/UserProfilePage/UserProfilePage'
+import CreateMenu from './pages/DashboardPage/CreateMenu/CreateMenu'
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path='/dashboard' element={<DashboardPage />} />
+            <Route path='/createMenu' element={<CreateMenu />} />
+            <Route path='/user' element={<UserProfilePage />} />
           </Route>
         </Routes>
       </BrowserRouter>

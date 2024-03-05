@@ -6,11 +6,13 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 const UserProfileContext = createContext()
 const MenuContext = createContext()
+const CategoryContext = createContext()
 
 function Layout() {
     const [userProfile, setUserProfile] = useState(null)
     const [menu, setMenu] = useState(null)
-    const getUserProfile = useMemo(() => async () => {
+    const [category, setCategory] = useState(null)
+    const getUserProfile = async () => {
         try {
             const token = window.localStorage.getItem('token')
             const response = await axios.get("https://bubble-tea-cafe-api-production.up.railway.app/api/auth/profile"
@@ -24,30 +26,42 @@ function Layout() {
         } catch (error) {
             console.log(error)
         }
-    }, [userProfile])
+    }
 
-    const getMenu = useMemo(() => async () => {
+    const getMenu = async () => {
         try {
             const response = await axios.get("https://bubble-tea-cafe-api-production.up.railway.app/api/menu")
             setMenu(response.data.data)
         } catch (error) {
             console.log(error)
         }
-    }, [menu])
+    }
 
+    const getCategory =async () => {
+        try {
+            const response = await axios.get("https://bubble-tea-cafe-api-production.up.railway.app/api/category")
+            setCategory(response.data.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
     useEffect(() => {
+        getCategory()
         getMenu()
         getUserProfile()
     }, [])
 
     return (
-        <MenuContext.Provider value={menu}>
-            <UserProfileContext.Provider value={userProfile}>
-                <Navbar />
-                <Outlet />
-                <Footer />
-            </UserProfileContext.Provider>
-        </MenuContext.Provider>
+        <CategoryContext.Provider value={category}>
+            <MenuContext.Provider value={menu}>
+                <UserProfileContext.Provider value={userProfile}>
+                    <Navbar />
+                    <Outlet />
+                    <Footer />
+                </UserProfileContext.Provider>
+            </MenuContext.Provider>
+        </CategoryContext.Provider>
     )
 }
 
@@ -67,4 +81,12 @@ const useMenu = () => {
     return context
 }
 
-export { useMenu, useUserProfile, Layout }
+const useCategory = () => {
+    const context = useContext(CategoryContext)
+    if (!context) {
+        console.log('CategoryContext must be used between CategoryContext Provider')
+    }
+    return context
+}
+
+export {useCategory, useMenu, useUserProfile, Layout }

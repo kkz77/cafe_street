@@ -1,4 +1,4 @@
-.dash-container {
+.create-menu-container {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
@@ -7,24 +7,22 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.dash-h2 {
+.create-menu-h2 {
     text-align: center;
     color: #000;
 }
 
-.dash-form {
+.create-menu-form {
     margin-top: 20px;
 }
 
-.dash-label {
+.create-menu-label {
     display: block;
     margin-bottom: 5px;
     color: #000;
 }
 
-textarea,
-select,
-.dash-input{
+.create-menu-input{
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -33,7 +31,7 @@ select,
     box-sizing: border-box;
 }
 
-button {
+.create-menu-button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -45,7 +43,7 @@ button {
     font-family: 'Poppins';
 }
 
-button:hover {
+.create-menu-button:hover {
     background-color: #fff;
     color: #2F2105;
     transition: 0.3s;
