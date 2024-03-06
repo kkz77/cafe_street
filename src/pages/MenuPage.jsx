@@ -1,7 +1,6 @@
 import Card from '../components/Card/Card'
 import '../App.css'
 import { useMenu } from '../layouts/BaseLayout'
-import { useMemo } from 'react'
 export default function MenuPage() {
     const menu =  useMenu()
     console.log(menu)

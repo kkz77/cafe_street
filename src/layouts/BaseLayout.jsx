@@ -6,12 +6,14 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 const UserProfileContext = createContext()
 const MenuContext = createContext()
+const ToppingContext = createContext()
 const CategoryContext = createContext()
 
 function Layout() {
     const [userProfile, setUserProfile] = useState(null)
     const [menu, setMenu] = useState(null)
     const [category, setCategory] = useState(null)
+    const [topping, setTopping] = useState(null)
     const getUserProfile = async () => {
         try {
             const token = window.localStorage.getItem('token')
@@ -37,7 +39,7 @@ function Layout() {
         }
     }
 
-    const getCategory =async () => {
+    const getCategory = async () => {
         try {
             const response = await axios.get("https://bubble-tea-cafe-api-production.up.railway.app/api/category")
             setCategory(response.data.data)
@@ -45,22 +47,34 @@ function Layout() {
             console.log(error)
         }
     }
-    
+
+    const getTopping = async () => {
+        try {
+            const response = await axios.get("https://bubble-tea-cafe-api-production.up.railway.app/api/topping")
+            setTopping(response.data.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         getCategory()
+        getTopping()
         getMenu()
         getUserProfile()
     }, [])
 
     return (
         <CategoryContext.Provider value={category}>
-            <MenuContext.Provider value={menu}>
-                <UserProfileContext.Provider value={userProfile}>
-                    <Navbar />
-                    <Outlet />
-                    <Footer />
-                </UserProfileContext.Provider>
-            </MenuContext.Provider>
+            <ToppingContext.Provider value={topping}>
+                <MenuContext.Provider value={menu}>
+                    <UserProfileContext.Provider value={userProfile}>
+                        <Navbar />
+                        <Outlet />
+                        <Footer />
+                    </UserProfileContext.Provider>
+                </MenuContext.Provider>
+            </ToppingContext.Provider>
         </CategoryContext.Provider>
     )
 }
@@ -89,4 +103,12 @@ const useCategory = () => {
     return context
 }
 
-export {useCategory, useMenu, useUserProfile, Layout }
+const useTopping = () =>{
+    const context = useContext(ToppingContext)
+    if (!context) {
+        console.log('ToppingContext must be used between ToppingContext Provider')
+    }
+    return context
+}
+
+export { useCategory, useMenu, useUserProfile, useTopping, Layout }

@@ -15,6 +15,9 @@ import DeleteMenu from './pages/DashboardPage/Menu/DeleteMenu'
 import CreateCategory from './pages/DashboardPage/Category/CreateCategory'
 import EditCategory from './pages/DashboardPage/Category/EditCategory'
 import DeleteCategory from './pages/DashboardPage/Category/DeleteCategory'
+import CreateTopping from './pages/DashboardPage/Topping/CreateTopping'
+import EditTopping from './pages/DashboardPage/Topping/EditTopping'
+import DeleteTopping from './pages/DashboardPage/Topping/DeleteTopping'
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
             <Route path='/category/createCategory' element={<CreateCategory/>} />
             <Route path='/category/editCategory/:id' element={<EditCategory/>} />
             <Route path='/category/deleteCategory/:id' element={<DeleteCategory/>} />
+            <Route path='/topping/createTopping' element={<CreateTopping/>} />
+            <Route path='/topping/editTopping/:id' element={<EditTopping/>} />
+            <Route path='/topping/deleteTopping/:id' element={<DeleteTopping/>} />
             <Route path='/user' element={<UserProfilePage />} />
           </Route>
         </Routes>
