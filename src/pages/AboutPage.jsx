@@ -1,4 +1,5 @@
 import '../App.css'
+import Map from '../components/Map/Map'
 export default function AboutPage() {
     return (
         <>
@@ -23,6 +24,9 @@ export default function AboutPage() {
                 <div className="about-bg-img">
                     <img src="./src/assets/img/bg-image2.png" alt="background image" />
                 </div>
+            </div>
+            <div>
+                <Map />
             </div>
         </>
     )

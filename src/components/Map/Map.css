@@ -1,0 +1,66 @@
+p {
+  font-size: 13px;
+  color: gray;
+  line-height: 22px;
+}
+
+h6 {
+  padding: 1rem 0;
+  font-weight: 300;
+  color: black;
+}
+
+h2 {
+  font-size: 25px;
+  padding: 1rem 0;
+  color: black;
+}
+
+.lma-titlesDiv {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.lma-sectionContainer {
+  display: inline-block;
+  width: 40%;
+  margin-left: 10%;
+  margin-right: 4%;
+}
+
+.singleInfo {
+  margin-top: 3%;
+  .number {
+    background-color: blue;
+    padding: 5px 12px;
+    width: 40px;
+    border-radius: 3rem;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .colorOne {
+    background-color: orange;
+  }
+  .colorTwo {
+    background-color: rgb(59, 122, 232);
+  }
+  .colorThree {
+    background-color: rgb(91, 218, 81);
+  }
+}
+
+.social {
+  margin-top: -20px;
+  width: 20%;
+}
+
+.imgDiv {
+  border: 1px solid black;
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+  max-width: 480px;
+}
