@@ -29,6 +29,9 @@
 }
 
 .paragraph {
+    height: 50px;
+    width: 250px;
+    overflow: auto;
     font-size: 18px;
     font-weight: normal;
     color: #929292;

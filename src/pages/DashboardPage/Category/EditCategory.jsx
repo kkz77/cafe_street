@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useCategory } from "../../../layouts/BaseLayout"
 
-export default function CreateCategory() {
+export default function EditCategory() {
     const category = useCategory()
     const { id } = useParams()
     const [name, setName] = useState("")

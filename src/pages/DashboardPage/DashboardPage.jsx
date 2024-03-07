@@ -1,4 +1,4 @@
-import { useCategory, useMenu, useTopping } from '../../layouts/BaseLayout'
+import { useCategory, useMenu, useOrder, useTopping } from '../../layouts/BaseLayout'
 import './DashboardPage.css'
 import { Link } from 'react-router-dom';
 
@@ -6,6 +6,7 @@ export default function DashboardPage() {
     const menu = useMenu() 
     const category = useCategory()
     const topping = useTopping()
+    const order = useOrder() 
     return (
         <>
             <div>
@@ -32,6 +33,14 @@ export default function DashboardPage() {
                     {t.name}
                     <button><Link to={`/topping/editTopping/${t.Id}`} style={{color:'#000'}}>Edit</Link></button>
                     <button><Link to={`/topping/deleteTopping/${t.Id}`} style={{color:'#000'}}>Delete</Link></button>
+                </div>):(<></>)}
+            </div>
+            <div>
+                <h2>All Orders</h2>
+                {console.log(order)}
+                {order ? order.map((o)=> <div key={`${o.Id}`} style={{color:"#000"}}>
+                    ID ={o.Id}\ user_id ={o.user_id}\ menu_id ={o.menu_id}\ order_status = {o.status}
+                    <button><Link to={`/order/updateOrder/${o.Id}`}>Update Status</Link></button>
                 </div>):(<></>)}
             </div>
         </>

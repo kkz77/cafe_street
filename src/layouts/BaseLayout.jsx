@@ -8,12 +8,15 @@ const UserProfileContext = createContext()
 const MenuContext = createContext()
 const ToppingContext = createContext()
 const CategoryContext = createContext()
+const OrderContext = createContext()
 
 function Layout() {
     const [userProfile, setUserProfile] = useState(null)
     const [menu, setMenu] = useState(null)
     const [category, setCategory] = useState(null)
     const [topping, setTopping] = useState(null)
+    const [order, setOrder] = useState(null)
+
     const getUserProfile = async () => {
         try {
             const token = window.localStorage.getItem('token')
@@ -56,26 +59,44 @@ function Layout() {
             console.log(error)
         }
     }
+    const getOrder = async () => {
+        try {
+            const token = window.localStorage.getItem('token')
+            const response = await axios.get("https://bubble-tea-cafe-api-production.up.railway.app/api/order",
+                {
+                    headers: {
+                        Authorization: `${token}`
+                    }
+                }
+            )
+            setOrder(response.data.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     useEffect(() => {
         getCategory()
         getTopping()
         getMenu()
         getUserProfile()
+        getOrder()
     }, [])
 
     return (
-        <CategoryContext.Provider value={category}>
-            <ToppingContext.Provider value={topping}>
-                <MenuContext.Provider value={menu}>
-                    <UserProfileContext.Provider value={userProfile}>
-                        <Navbar />
-                        <Outlet />
-                        <Footer />
-                    </UserProfileContext.Provider>
-                </MenuContext.Provider>
-            </ToppingContext.Provider>
-        </CategoryContext.Provider>
+        <OrderContext.Provider value={order}>
+            <CategoryContext.Provider value={category}>
+                <ToppingContext.Provider value={topping}>
+                    <MenuContext.Provider value={menu}>
+                        <UserProfileContext.Provider value={userProfile}>
+                            <Navbar />
+                            <Outlet />
+                            <Footer />
+                        </UserProfileContext.Provider>
+                    </MenuContext.Provider>
+                </ToppingContext.Provider>
+            </CategoryContext.Provider>
+        </OrderContext.Provider>
     )
 }
 
@@ -103,7 +124,7 @@ const useCategory = () => {
     return context
 }
 
-const useTopping = () =>{
+const useTopping = () => {
     const context = useContext(ToppingContext)
     if (!context) {
         console.log('ToppingContext must be used between ToppingContext Provider')
@@ -111,4 +132,12 @@ const useTopping = () =>{
     return context
 }
 
-export { useCategory, useMenu, useUserProfile, useTopping, Layout }
+const useOrder = () => {
+    const context = useContext(OrderContext)
+    if (!context) {
+        console.log('ToppingContext must be used between ToppingContext Provider')
+    }
+    return context
+}
+
+export { useCategory, useMenu, useOrder, useUserProfile, useTopping, Layout }

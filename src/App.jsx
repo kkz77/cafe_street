@@ -18,6 +18,7 @@ import DeleteCategory from './pages/DashboardPage/Category/DeleteCategory'
 import CreateTopping from './pages/DashboardPage/Topping/CreateTopping'
 import EditTopping from './pages/DashboardPage/Topping/EditTopping'
 import DeleteTopping from './pages/DashboardPage/Topping/DeleteTopping'
+import UpdateOrderStatus from './pages/DashboardPage/Order/UpdataOrderStatus'
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path='/topping/createTopping' element={<CreateTopping/>} />
             <Route path='/topping/editTopping/:id' element={<EditTopping/>} />
             <Route path='/topping/deleteTopping/:id' element={<DeleteTopping/>} />
+            <Route path='/order/updateOrder/:id' element={<UpdateOrderStatus/>} />
             <Route path='/user' element={<UserProfilePage />} />
           </Route>
         </Routes>
