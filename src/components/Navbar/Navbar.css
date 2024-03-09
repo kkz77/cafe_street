@@ -81,6 +81,7 @@
 
 .profile .profile-header{
     padding-top: 10px;
+    display: inline-block;
 }
 
 .profile a {

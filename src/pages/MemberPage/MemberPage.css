@@ -1,0 +1,492 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins','sans-serif';
+}
+
+body {
+    background-color: white;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.lma-main-container {
+
+    .main-nav {
+        position: fixed;
+        padding-top: 1.2%;
+        text-align: center;
+        border-top-right-radius: 12px;
+        background-color: white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        float: left;
+        width: 5%;
+
+        .logo {
+            .navimg {
+                width: 70%;
+                padding-bottom: 50%;
+            }
+        }
+
+        .nav-items {
+            padding-bottom: 11.5px;
+            width: 66%;
+            margin: auto;
+
+            a {
+                text-decoration: none;
+            }
+
+            .navimg {
+                width: 65%;
+            }
+
+            p {
+                font-size: 0.8vw;
+            }
+
+            margin-bottom: 15px;
+        }
+
+        .nav-items:hover {
+            border-radius: 14px;
+            background-color: aquamarine;
+        }
+    }
+
+    .main-category {
+        display: inline-block;
+        background-color: rgb(244, 244, 244);
+        width: 68%;
+        padding-left: 6.4%;
+        padding-top: 30px;
+
+        h1 {
+            display: inline-block;
+        }
+
+        .search-div {
+            position: relative;
+            margin-left: 20%;
+            display: inline-block;
+        }
+
+        .search {
+            border: none;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding-left: 20px;
+            padding-right: 16px;
+            font-size: 16px;
+            width: 90%;
+            border-radius: 18px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            outline: none;
+        }
+
+        .search-icon {
+            right: 29px;
+            top: 9px;
+            width: 25px;
+            position: absolute;
+        }
+    }
+
+    .item-category {
+        display: flex;
+
+        a {
+            text-decoration: none;
+        }
+
+        .item-menu-list:hover {
+            opacity: 0.8;
+            transition: 0.2s;
+            border: 1px solid brown;
+        }
+
+        .item-menu-list:active {
+            opacity: 0.5;
+            border: 1px solid rgb(112, 32, 32);
+        }
+
+        .item-menu-list {
+            transition: 1s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            border: 1px solid #fff;
+            text-align: center;
+            background-color: transparent;
+            width: 40%;
+            border-radius: 20px;
+            padding: 8px;
+            margin: auto;
+
+            .img-category {
+                width: 80%;
+            }
+
+            p {
+                font-size: 1vw;
+            }
+        }
+    }
+
+    .coffee-menu {
+        margin: 20px;
+        margin-top: 30px;
+
+        .coffee-container {
+            /* background-color: rgb(157, 157, 157); */
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+
+            .coffee-container1 {
+                margin-right: 5%;
+                margin-bottom: 6%;
+                border-radius: 10px;
+                background-color: white;
+                padding: 10px;
+                width: 40%;
+
+                .coffee-img-text {
+                    .lattle-box {
+                        width: 40%;
+                        float: left;
+                        margin-right: 10px;
+                        border-radius: 10px;
+                    }
+
+                    .inside-text {
+                        padding-top: 6%;
+
+                        .header-menu {
+                            font-size: 1.7vw;
+                        }
+                    }
+
+                    .coffee-des {
+                        margin-top: 6%;
+                        font-size: 1vw;
+                        color: gray;
+                        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                    }
+
+                    .coffee-price {
+                        margin-top: 16%;
+                        font-size: 1.3vw;
+                    }
+
+                    .coffee-mood-size-sugar-ice {
+                        margin-top: 15%;
+                        display: flex;
+                        width: 100%;
+                        justify-content: center;
+                        flex-wrap: wrap;
+
+                        .mood {
+                            width: 50%;
+                            margin-top: 10px;
+
+                            .type-select {
+                                margin-top: 20px;
+                            }
+
+                            .type-select-emoji{
+                                margin-top: 8px;
+                            }
+
+                            .emoji-one {
+                                background-color: rgb(255, 231, 231);
+                                width: 21%;
+                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                                border-radius: 20px;
+                                margin-right: 12px;
+                                padding: 1px;
+                            }
+                            
+
+                            .emoji-one:hover {
+                                cursor: pointer;
+                                opacity: 0.9;
+                                transition: 0.3s;
+                                box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+                            }
+
+                            .emoji-one:active {
+                                opacity: 0.5;
+                                border: 1px solid rgb(112, 32, 32);
+                            }
+
+                            .emoji-two {
+                                background-color: rgb(255, 231, 231);
+                                width: 21%;
+                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                                border-radius: 20px;
+                                margin-right: 8px;
+                                padding: 1px;
+                            }
+
+                            .emoji-two:hover {
+                                cursor: pointer;
+                                opacity: 0.9;
+                                transition: 0.3s;
+                                box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+                            }
+
+                            .emoji-two:active {
+                                opacity: 0.5;
+                                border: 1px solid rgb(112, 32, 32);
+                            }
+
+                            .emoji-three {
+                                background-color: rgb(255, 231, 231);
+                                width: 21%;
+                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                                border-radius: 20px;
+                                padding: 1px;
+                            }
+
+                            .emoji-text {
+                                font-size: 0.8vw;
+                                background-color: rgb(255, 231, 231);
+                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                                border-radius: 100px;
+                                padding: 6.8% 8.2%;
+                                margin-right: 8px;
+                            }
+
+                            .emoji-text:hover {
+                                cursor: pointer;
+                                opacity: 0.9;
+                                transition: 0.3s;
+                                box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+                            }
+
+                            .emoji-text:active {
+                                opacity: 0.5;
+                                border: 1px solid rgb(112, 32, 32);
+                            }
+
+                            .percent-text {
+                                font-size: 0.75vw;
+                                background-color: rgb(255, 231, 231);
+                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                                border-radius: 200px;
+                                padding: 8% 5%;
+                                margin-right: 10px;
+                            }
+
+                            .percent-text:hover {
+                                cursor: pointer;
+                                opacity: 0.9;
+                                transition: 0.3s;
+                                box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+                            }
+
+                            .percent-text:active {
+                                opacity: 0.5;
+                                border: 1px solid rgb(112, 32, 32);
+                            }
+                        }
+                    }
+                }
+
+                .add-t-b-a {
+                    text-decoration: none;
+                    color: white;
+                }
+
+                .add-to-billing {
+                    text-decoration: none;
+                    text-align: center;
+                    font-size: 1.1vw;
+                    margin: auto;
+                    width: 70%;
+                    padding-top: 3%;
+                    margin-top: 11%;
+                    margin-bottom: 10%;
+                    background-color: rgb(111, 74, 49);
+                    border-radius: 10px;
+                    height: 7%;
+                    color: #fff;
+                }
+
+                .add-to-billing:hover {
+                    cursor: pointer;
+                    opacity: 0.9;
+                    transition: 0.3s;
+                    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+                }
+
+                .add-to-billing:active {
+                    opacity: 0.5;
+                    border: 1px solid rgb(112, 32, 32);
+                }
+            }
+        }
+    }
+
+    .side {
+        float: right;
+        width: 25%;
+        padding-top: 0.7%;
+
+        .user {
+            border-radius: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+            .user-profile-link {
+                text-decoration: none;
+                transition: 0.4s;
+            }
+
+            .user-profile-link:hover {
+                opacity: 0.8;
+            }
+
+            .user-profile-text {
+                display: inline-block;
+                vertical-align: text-top;
+                padding: 1%;
+            }
+
+            .user-profile-img {
+                vertical-align: middle;
+                width: 14%;
+                border-radius: 30px;
+            }
+        }
+
+        .bills-part {
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-top: 10%;
+            padding: 4%;
+
+            .bills-header {
+                margin-bottom: 8%;
+            }
+
+            .bills-coffee {
+                padding-left: 4%;
+                margin-bottom: 10%;
+                width: 80%;
+
+                .bills-coffee-img {
+                    width: 18%;
+                    border-radius: 10px;
+                    vertical-align: top;
+                }
+
+                .bills-coffee-texts {
+                    padding: 2%;
+                    display: inline-block;
+                    vertical-align: text-top;
+
+                    .bills-quantity-price {
+                        padding-top: 18%;
+
+                        .bills-note {
+                            background-color: burlywood;
+                            border-radius: 10px;
+                            padding: 6%;
+                            margin: 0 6%;
+                            font-size: 0.7vw;
+                        }
+                    }
+                }
+            }
+
+            .bills-total {
+                line-height: 1.8vw;
+                font-size: 0.95vw;
+
+                .subtotal {
+                    padding-left: 28%;
+                }
+
+                .tax {
+                    padding-left: 25%;
+                }
+
+                .total {
+                    padding-left: 34%;
+                }
+            }
+
+            .payment {
+                margin-top: 18%;
+
+                .payment-methods {
+                    display: flex;
+                    text-align: center;
+                    margin-top: 5%;
+
+                    .payment-cash {
+                        .payment-a {
+                            text-decoration: none;
+                        }
+
+                        padding: 10px;
+                        margin-right: 10px;
+                        background-color: rgb(255, 231, 231);
+                        border-radius: 10px;
+
+                        img {
+                            width: 50%;
+                        }
+
+                        p {
+                            font-size: 1vw;
+                        }
+                    }
+                }
+
+                .payment-cash:hover {
+                    cursor: pointer;
+                    opacity: 0.8;
+                    border: 1px solid brown;
+                }
+
+                .payment-cash:active {
+                    opacity: 0.5;
+                    border: 1px solid rgb(112, 32, 32);
+                }
+
+                .add-t-b-a {
+                    text-decoration: none;
+                    color: white;
+                }
+
+                .add-to-billing {
+                    text-decoration: none;
+                    text-align: center;
+                    font-size: 1.1vw;
+                    margin: auto;
+                    width: 70%;
+                    padding: 4% 0;
+                    margin-top: 11%;
+                    margin-bottom: 10%;
+                    background-color: rgb(111, 74, 49);
+                    border-radius: 10px;
+                    color: #fff;
+                }
+
+                .add-to-billing:hover {
+                    cursor: pointer;
+                    opacity: 0.9;
+                    transition: 0.3s;
+                    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; 
+                }
+
+                .add-to-billing:active {
+                    opacity: 0.5;
+                    border: 1px solid rgb(112, 32, 32);
+                }
+            }
+        }
+    }
+}

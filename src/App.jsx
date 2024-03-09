@@ -19,6 +19,7 @@ import CreateTopping from './pages/DashboardPage/Topping/CreateTopping'
 import EditTopping from './pages/DashboardPage/Topping/EditTopping'
 import DeleteTopping from './pages/DashboardPage/Topping/DeleteTopping'
 import UpdateOrderStatus from './pages/DashboardPage/Order/UpdataOrderStatus'
+import MemberPage from './pages/MemberPage/MemberPage'
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path='/topping/deleteTopping/:id' element={<DeleteTopping/>} />
             <Route path='/order/updateOrder/:id' element={<UpdateOrderStatus/>} />
             <Route path='/user' element={<UserProfilePage />} />
+            <Route path='/member' element={<MemberPage/>} />
           </Route>
         </Routes>
       </BrowserRouter>
