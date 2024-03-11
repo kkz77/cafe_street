@@ -33,12 +33,19 @@ export default function Navbar() {
                         <div className="profile" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
                             <a className='profile-img' href="#"><img src="./src/assets/img/profile-user.png" alt="Profile" /></a>
                             <a href="#" className='profile-header'>Welcome, {userProfile.username}</a>
-                            {isDropdownOpen && (
+                            { userProfile.role == "customer" ?(
+                            isDropdownOpen && (
                                 <div className="dropdown-content">
-                                    <a href="/dashboard">Dashboard</a>
+                                    <a href="/member">My Account</a>
                                     <a href='/' onClick={handleLogout}>Logout</a>
                                 </div>
-                            )}
+                            )):(
+                                isDropdownOpen && (
+                                    <div className="dropdown-content">
+                                        <a href="/dashboard">Dashboard</a>
+                                        <a href='/' onClick={handleLogout}>Logout</a>
+                                    </div>
+                            ))}
                         </div>
                     </div>
                 ) : (

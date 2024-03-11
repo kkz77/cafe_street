@@ -87,7 +87,7 @@ body {
         }
 
         .search-icon {
-            right: 29px;
+            right: 0;
             top: 9px;
             width: 25px;
             position: absolute;
@@ -153,7 +153,8 @@ body {
 
                 .coffee-img-text {
                     .lattle-box {
-                        width: 40%;
+                        width: 150px;
+                        height: 180px;
                         float: left;
                         margin-right: 10px;
                         border-radius: 10px;
@@ -172,26 +173,47 @@ body {
                         font-size: 1vw;
                         color: gray;
                         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                        height: 100px;
+                        overflow: scroll;
                     }
 
                     .coffee-price {
-                        margin-top: 16%;
+                        margin-top: 10%;
                         font-size: 1.3vw;
                     }
 
                     .coffee-mood-size-sugar-ice {
-                        margin-top: 15%;
+                        margin-top: 20px;
                         display: flex;
                         width: 100%;
-                        justify-content: center;
+                        justify-content: flex-start;
                         flex-wrap: wrap;
 
                         .mood {
-                            width: 50%;
+                            width: 30%;
                             margin-top: 10px;
 
                             .type-select {
-                                margin-top: 20px;
+                                margin-top: 15px;
+                                display: flex;
+                            }
+
+                            .type-select > div{
+                                margin-right: 10px;
+                                font-size: 14px;
+                            }
+
+                            .type-select .add-button, .type-select .minus-button{
+                                width: 30px;
+                                height: 30px;
+                                border-radius: 30px;
+                                border: none;
+                            }
+
+                            .type-select .count{
+                                display: flex;
+                                align-items: center;
+                                margin: 0 10px;
                             }
 
                             .type-select-emoji{
