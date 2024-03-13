@@ -409,15 +409,23 @@ body {
                     vertical-align: text-top;
 
                     .bills-quantity-price {
-                        padding-top: 18%;
+                        padding-top: 10px;
+                        justify-content: center;
+                        align-items: center;
+                        display: flex;
+                    }
 
-                        .bills-note {
-                            background-color: burlywood;
-                            border-radius: 10px;
-                            padding: 6%;
-                            margin: 0 6%;
-                            font-size: 0.7vw;
-                        }
+                    .bills-quantity{
+                        margin-right: 10px;
+                    }
+
+                    .bills-note {
+                        display: inline-block;
+                        background-color: burlywood;
+                        border-radius: 10px;
+                        padding: 10px 5px;
+                        margin-right: 10px;
+                        font-size: 0.7vw;
                     }
                 }
             }

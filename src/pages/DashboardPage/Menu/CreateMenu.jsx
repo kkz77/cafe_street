@@ -33,6 +33,7 @@ export default function CreateMenu() {
             image: formData.image
         };
         try {
+            console.log(menuData)
             const token = window.localStorage.getItem('token')
             axios.post(
                 "https://bubble-tea-cafe-api-production.up.railway.app/api/menu",

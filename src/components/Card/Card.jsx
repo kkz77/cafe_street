@@ -4,7 +4,6 @@ export default function Card({ rating, name, price, img, description }) {
         <div className="card">
             {console.log(img)}
             <img src={`${img}`} alt={name} />
-            {/* <img src={`./src/assets/img/${img}`} alt={name} /> */}
             <div className="rating">{rating} <span className="fa fa-star checked"></span> </div>
             <div className="card-product-1-header">
                 <div className="card-product-1-header1">{name}</div>
