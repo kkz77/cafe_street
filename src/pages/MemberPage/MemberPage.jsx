@@ -24,7 +24,6 @@ export default function MemberPage() {
                     response={response} setResponse={setResponse}
                 />
 
-
                 <article className="side">
                     <div className="user">
                         {

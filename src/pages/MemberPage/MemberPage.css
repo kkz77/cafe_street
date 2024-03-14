@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins','sans-serif';
+    font-family: 'Poppins', 'sans-serif';
 }
 
 body {
@@ -30,9 +30,11 @@ body {
         }
 
         .nav-items {
-            padding-bottom: 11.5px;
+            margin-bottom: 11.5px;
             width: 66%;
             margin: auto;
+            border: 1px solid #fff;
+            border-radius: 14px;
 
             a {
                 text-decoration: none;
@@ -50,8 +52,10 @@ body {
         }
 
         .nav-items:hover {
+            padding: 2px;
+            border: 1px solid #893305;
             border-radius: 14px;
-            background-color: aquamarine;
+            transition: 0.2s;
         }
     }
 
@@ -96,6 +100,7 @@ body {
 
     .item-category {
         display: flex;
+        justify-content: space-around;
 
         a {
             text-decoration: none;
@@ -118,9 +123,8 @@ body {
             border: 1px solid #fff;
             text-align: center;
             background-color: transparent;
-            width: 40%;
             border-radius: 20px;
-            padding: 8px;
+            padding: 8px 10px;
             margin: auto;
 
             .img-category {
@@ -198,25 +202,26 @@ body {
                                 display: flex;
                             }
 
-                            .type-select > div{
+                            .type-select>div {
                                 margin-right: 10px;
                                 font-size: 14px;
                             }
 
-                            .type-select .add-button, .type-select .minus-button{
+                            .type-select .add-button,
+                            .type-select .minus-button {
                                 width: 30px;
                                 height: 30px;
                                 border-radius: 30px;
                                 border: none;
                             }
 
-                            .type-select .count{
+                            .type-select .count {
                                 display: flex;
                                 align-items: center;
                                 margin: 0 10px;
                             }
 
-                            .type-select-emoji{
+                            .type-select-emoji {
                                 margin-top: 8px;
                             }
 
@@ -228,7 +233,7 @@ body {
                                 margin-right: 12px;
                                 padding: 1px;
                             }
-                            
+
 
                             .emoji-one:hover {
                                 cursor: pointer;
@@ -388,6 +393,29 @@ body {
             margin-top: 10%;
             padding: 4%;
 
+            .bills-cart {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 25px;
+            }
+
+            .remove-cart {
+                font-size: 12px;
+                padding: 12px 10px;
+                background: #C60200;
+                border-radius: 10px;
+                border: 1px solid #C60200;
+                color: #fff;
+            }
+
+            .remove-cart:hover {
+                background-color: #fff;
+                color: #C60200;
+                border: 1px solid #C60200;
+                transition: 0.2s;
+            }
+
             .bills-header {
                 margin-bottom: 8%;
             }
@@ -395,7 +423,6 @@ body {
             .bills-coffee {
                 padding-left: 4%;
                 margin-bottom: 10%;
-                width: 80%;
 
                 .bills-coffee-img {
                     width: 18%;
@@ -415,7 +442,7 @@ body {
                         display: flex;
                     }
 
-                    .bills-quantity{
+                    .bills-quantity {
                         margin-right: 10px;
                     }
 
@@ -430,21 +457,18 @@ body {
                 }
             }
 
+            .bills-text {
+                display: flex;
+            }
+
+            .bills-text>p {
+                width: 100px;
+                margin-right: 20px;
+            }
+
             .bills-total {
                 line-height: 1.8vw;
                 font-size: 0.95vw;
-
-                .subtotal {
-                    padding-left: 28%;
-                }
-
-                .tax {
-                    padding-left: 25%;
-                }
-
-                .total {
-                    padding-left: 34%;
-                }
             }
 
             .payment {
@@ -509,7 +533,7 @@ body {
                     cursor: pointer;
                     opacity: 0.9;
                     transition: 0.3s;
-                    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; 
+                    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
                 }
 
                 .add-to-billing:active {

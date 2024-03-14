@@ -3,8 +3,11 @@ import { useEffect, useState } from "react"
 export default function Bill({ menu, response, topping }) {
     const [menuNames, setMenuNames] = useState([])
     const [price, setPrice] = useState([])
-    const [imageUrl,setImageUrl] = useState([])
+    const [imageUrl, setImageUrl] = useState([])
     const [toppingNames, setToppingNames] = useState([])
+    const [totalItemCost, setTotalItemCost] = useState(0)
+    const [taxCost, setTaxCost] = useState(0)
+    let removeCartRendered = false
     useEffect(() => {
         const menuNameMap = {}
         const toppingNameMap = {}
@@ -27,6 +30,16 @@ export default function Bill({ menu, response, topping }) {
         setPrice(priceNameMap)
     }, [menu])
 
+    useEffect(() => {
+        let value = 0
+        response ? (response.map((r) => {
+            const itemPrice = price[r.menu_id] * r.quantity
+            value += itemPrice
+            setTotalItemCost(value)
+        })) : ('')
+        setTaxCost(totalItemCost * 10 / 100)
+    }, [response, price])
+
     return (
         <div className="bills-part">
             <h3 className="bills-header">Bills</h3>
@@ -47,18 +60,30 @@ export default function Bill({ menu, response, topping }) {
                                     ))
                                     ) : ('')
                                 }
+                                {
+                                    removeCartRendered = true
+                                }
                                 <small>${price[r.menu_id] * r.quantity}</small>
                             </p>
                         </div>
                     </div>
+
                 )) : ('')
             }
 
+            {
+                removeCartRendered && response ? (
+                    <div className="bills-cart">
+                        <a href="#" className="remove-cart">Remove Cart</a>
+                    </div>
+                ):('')
+            }
+            
             <div className="bills-total">
-                <p>Subtotal <span className="subtotal">$123</span></p>
-                <p>Tax (10%) <span className="tax">$123</span></p>
+                <div className="bills-text"><p>SubTotal</p><span className="subtotal">${totalItemCost}</span></div>
+                <div className="bills-text"><p>Tax(10%)</p> <span className="tax">${taxCost}</span></div>
                 <hr />
-                <p>Total <span className="total">$1234</span></p>
+                <div className="bills-text"><p>Total</p><span className="total">${totalItemCost + taxCost}</span></div>
             </div>
 
             <div className="payment">

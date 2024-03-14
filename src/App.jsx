@@ -37,15 +37,15 @@ function App() {
             <Route path='/menu/createMenu' element={<CreateMenu />} />
             <Route path='/menu/editMenu/:id' element={<EditMenu />} />
             <Route path='/menu/deleteMenu/:id' element={<DeleteMenu />} />
-            <Route path='/category/createCategory' element={<CreateCategory/>} />
-            <Route path='/category/editCategory/:id' element={<EditCategory/>} />
-            <Route path='/category/deleteCategory/:id' element={<DeleteCategory/>} />
-            <Route path='/topping/createTopping' element={<CreateTopping/>} />
-            <Route path='/topping/editTopping/:id' element={<EditTopping/>} />
-            <Route path='/topping/deleteTopping/:id' element={<DeleteTopping/>} />
-            <Route path='/order/updateOrder/:id' element={<UpdateOrderStatus/>} />
+            <Route path='/category/createCategory' element={<CreateCategory />} />
+            <Route path='/category/editCategory/:id' element={<EditCategory />} />
+            <Route path='/category/deleteCategory/:id' element={<DeleteCategory />} />
+            <Route path='/topping/createTopping' element={<CreateTopping />} />
+            <Route path='/topping/editTopping/:id' element={<EditTopping />} />
+            <Route path='/topping/deleteTopping/:id' element={<DeleteTopping />} />
+            <Route path='/order/updateOrder/:id' element={<UpdateOrderStatus />} />
             <Route path='/user' element={<UserProfilePage />} />
-            <Route path='/member' element={<MemberPage/>} />
+            <Route path='/member' element={<MemberPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

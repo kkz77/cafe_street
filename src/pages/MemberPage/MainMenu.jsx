@@ -15,7 +15,8 @@ export default function MainMenu({ cart, setCart, menu, topping, category, respo
             setCount(initialCounts);
         }
     }, [menu]);
-    console.log("first", count)
+
+
     const handlePositiveChange = (menuId, newCount) => {
         setCount(prevCount => ({
             ...prevCount,
@@ -127,10 +128,6 @@ export default function MainMenu({ cart, setCart, menu, topping, category, respo
                         console.log(selectedCategory)
                     }
                     <div className="item-menu-list">
-                        <img
-                            className="img-category"
-                            src="https://cdn-icons-png.flaticon.com/512/4474/4474385.png"
-                        />
                         <p>All</p>
                     </div>
                 </a>
@@ -138,10 +135,6 @@ export default function MainMenu({ cart, setCart, menu, topping, category, respo
                     category ? (category.map((c) =>
                         <a href="#" key={c.Id} onClick={() => setSelectedCategory(c.name)}>
                             <div className="item-menu-list">
-                                <img
-                                    className="img-category"
-                                    src="https://cdn-icons-png.flaticon.com/512/2315/2315990.png"
-                                />
                                 <p>{c.name}</p>
                             </div>
                         </a>
@@ -209,7 +202,7 @@ export default function MainMenu({ cart, setCart, menu, topping, category, respo
                                             </div>
                                         </div>
                                         <a className="add-t-b-a" href="#" onClick={() => handleAddToCart(m.Id)}>
-                                            <p className="add-to-billing">Add to Billing</p>
+                                            <p className="add-to-billing">Add to Cart</p>
                                         </a>
                                     </div>
                                 ) : (

@@ -2,18 +2,20 @@ import { useState } from 'react'
 import { useUserProfile } from '../../layouts/BaseLayout'
 import './Navbar.css'
 import { redirect } from 'react-router-dom'
+
+export const handleLogout = () => {
+    localStorage.removeItem("token")
+    return redirect('/login')
+}
+
 export default function Navbar() {
     const userProfile = useUserProfile()
     const [isDropdownOpen, setIsDropDownOpen] = useState(false)
-
     const toggleDropdown = () => {
         setIsDropDownOpen(!isDropdownOpen)
     }
 
-    const handleLogout = () => {
-        localStorage.removeItem("token")
-        return redirect('/login')
-    }
+
 
     return (
         <div className="nav-section">
@@ -33,19 +35,19 @@ export default function Navbar() {
                         <div className="profile" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
                             <a className='profile-img' href="#"><img src="./src/assets/img/profile-user.png" alt="Profile" /></a>
                             <a href="#" className='profile-header'>Welcome, {userProfile.username}</a>
-                            { userProfile.role == "customer" ?(
-                            isDropdownOpen && (
-                                <div className="dropdown-content">
-                                    <a href="/member">My Account</a>
-                                    <a href='/' onClick={handleLogout}>Logout</a>
-                                </div>
-                            )):(
+                            {userProfile.role == "customer" ? (
+                                isDropdownOpen && (
+                                    <div className="dropdown-content">
+                                        <a href="/member">My Account</a>
+                                        <a href='/' onClick={handleLogout}>Logout</a>
+                                    </div>
+                                )) : (
                                 isDropdownOpen && (
                                     <div className="dropdown-content">
                                         <a href="/dashboard">Dashboard</a>
                                         <a href='/' onClick={handleLogout}>Logout</a>
                                     </div>
-                            ))}
+                                ))}
                         </div>
                     </div>
                 ) : (

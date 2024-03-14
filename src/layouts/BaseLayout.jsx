@@ -1,5 +1,5 @@
 import Footer from "../components/Footer/Footer";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import axios from "axios";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
@@ -16,7 +16,8 @@ function Layout() {
     const [category, setCategory] = useState(null)
     const [topping, setTopping] = useState(null)
     const [order, setOrder] = useState(null)
-
+    const location = useLocation()
+    const isMemberPage = location.pathname === "/member"
     const getUserProfile = async () => {
         try {
             const token = window.localStorage.getItem('token')
@@ -89,9 +90,19 @@ function Layout() {
                 <ToppingContext.Provider value={topping}>
                     <MenuContext.Provider value={menu}>
                         <UserProfileContext.Provider value={userProfile}>
-                            <Navbar />
-                            <Outlet />
-                            <Footer />
+                            {
+                                !isMemberPage && (
+                                    <>
+                                        <Navbar />
+                                        <Outlet />
+                                        <Footer />
+                                    </>
+                                )
+                            }
+                            {
+                                isMemberPage && <Outlet />
+                            }
+
                         </UserProfileContext.Provider>
                     </MenuContext.Provider>
                 </ToppingContext.Provider>
