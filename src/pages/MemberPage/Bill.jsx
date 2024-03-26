@@ -1,14 +1,14 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 
-export default function Bill({ menu, response, topping, setResponse, user }) {
+export default function Bill({ menu, response, topping, setResponse }) {
     const [menuNames, setMenuNames] = useState([])
     const [price, setPrice] = useState([])
     const [imageUrl, setImageUrl] = useState([])
     const [toppingNames, setToppingNames] = useState([])
     const [totalItemCost, setTotalItemCost] = useState(0)
     const [taxCost, setTaxCost] = useState(0)
-    
+
     const deleteAllItem = async () => {
         try {
             const token = window.localStorage.getItem('token')
@@ -42,12 +42,46 @@ export default function Bill({ menu, response, topping, setResponse, user }) {
                     }
                 }
             ).then((response) => {
-                window.location.href = '/member'                
+                window.location.href = '/member'
                 console.log("response", response)
             })
         }
         catch (error) {
             console.log(error)
+        }
+    };
+
+    const postOrder = async (response) => {
+        try {
+            // Iterate over each item in the cart
+            for (const item of response) {
+                // Create the payload object for the POST request
+                const payload = {
+                    user_id: item.user_id,
+                    menu_id: item.menu_id,
+                    quantity: item.quantity,
+                    topping: item.topping,
+                    comment: item.comment,
+                    status: "pending"
+                };
+
+                // Make the POST request to the API endpoint
+                const token = window.localStorage.getItem('token')
+                const result = await axios.post('https://bubble-tea-cafe-api-production.up.railway.app/api/order', payload,
+                    {
+                        headers: {
+                            Authorization: `${token}`
+                        }
+                    }
+                )
+            }
+            await deleteAllItem()
+            console.log('Item posted successfully:', result.data);
+            window.location.href = "/member"
+        }
+        catch (error) {
+            // Handle any errors
+            console.error('Error posting Order items:', error);
         }
     };
 
@@ -115,7 +149,7 @@ export default function Bill({ menu, response, topping, setResponse, user }) {
                             </p>
                         </div>
                         <div className="bills-delete-item">
-                            <button onClick={()=>deleteItem(r.Id)}>X</button>
+                            <button onClick={() => deleteItem(r.Id)}>X</button>
                         </div>
                     </div>
 
@@ -165,8 +199,8 @@ export default function Bill({ menu, response, topping, setResponse, user }) {
                         </a>
                     </div>
                 </div>
-                <a className="add-t-b-a" href="#">
-                    <p className="add-to-billing">Print Bills</p>
+                <a className="add-t-b-a" onClick={() => postOrder(response)}>
+                    <p className="add-to-billing">Order Now</p>
                 </a>
             </div>
         </div>

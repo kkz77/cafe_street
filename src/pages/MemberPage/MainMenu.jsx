@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from 'react'
-export default function MainMenu({ user, cart, setCart, menu, topping, category, setResponse, response }) {
+export default function MainMenu({ cart, setCart, menu, topping, category }) {
 
     const [selectedCategory, setSelectedCategory] = useState("")
     const [count, setCount] = useState([])
@@ -95,7 +95,7 @@ export default function MainMenu({ user, cart, setCart, menu, topping, category,
                     window.location.href = "/member"
                     setCart([])
                 });
-                
+
             }
         } catch (error) {
             // Handle any errors
