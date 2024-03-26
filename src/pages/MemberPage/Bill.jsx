@@ -1,13 +1,41 @@
+import axios from "axios"
 import { useEffect, useState } from "react"
 
-export default function Bill({ menu, response, topping }) {
+export default function Bill({ menu, response, topping, setResponse, user }) {
     const [menuNames, setMenuNames] = useState([])
     const [price, setPrice] = useState([])
     const [imageUrl, setImageUrl] = useState([])
     const [toppingNames, setToppingNames] = useState([])
     const [totalItemCost, setTotalItemCost] = useState(0)
     const [taxCost, setTaxCost] = useState(0)
+    
+    const deleteItem = async () => {
+        try {
+            const token = window.localStorage.getItem('token')
+            axios.delete(
+                `https://bubble-tea-cafe-api-production.up.railway.app/api/auth/remove-all-from-cart`,
+                {
+                    headers: {
+                        Authorization: `${token}`
+                    }
+                }
+            ).then((response) => {
+                setResponse([])
+                setTaxCost(0)
+                setTotalItemCost(0)
+                console.log("response", response)
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+    };
+
     let removeCartRendered = false
+    useEffect(() => {
+        console.log("Response changed")
+    }, [response])
+
     useEffect(() => {
         const menuNameMap = {}
         const toppingNameMap = {}
@@ -37,7 +65,7 @@ export default function Bill({ menu, response, topping }) {
             value += itemPrice
             setTotalItemCost(value)
         })) : ('')
-        setTaxCost(totalItemCost * 10 / 100)
+        setTaxCost(totalItemCost * 0.1)
     }, [response, price])
 
     return (
@@ -74,16 +102,16 @@ export default function Bill({ menu, response, topping }) {
             {
                 removeCartRendered && response ? (
                     <div className="bills-cart">
-                        <a href="#" className="remove-cart">Remove Cart</a>
+                        <a href="#" className="remove-cart" onClick={() => deleteItem()}>Remove Cart</a>
                     </div>
-                ):('')
+                ) : ('')
             }
-            
+
             <div className="bills-total">
-                <div className="bills-text"><p>SubTotal</p><span className="subtotal">${totalItemCost}</span></div>
-                <div className="bills-text"><p>Tax(10%)</p> <span className="tax">${taxCost}</span></div>
+                <div className="bills-text"><p>SubTotal</p><span className="subtotal">${totalItemCost.toFixed(2)}</span></div>
+                <div className="bills-text"><p>Tax(10%)</p> <span className="tax">${taxCost.toFixed(2)}</span></div>
                 <hr />
-                <div className="bills-text"><p>Total</p><span className="total">${totalItemCost + taxCost}</span></div>
+                <div className="bills-text"><p>Total</p><span className="total">${(totalItemCost + taxCost).toFixed(2)}</span></div>
             </div>
 
             <div className="payment">

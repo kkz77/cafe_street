@@ -1,8 +1,8 @@
-import { useMenu,useCategory, useTopping, useUserProfile } from '../../layouts/BaseLayout'
+import { useMenu, useCategory, useTopping, useUserProfile } from '../../layouts/BaseLayout'
 import './MemberPage.css'
 import MainNav from '../../components/Member/MainNav'
 import MainMenu from './MainMenu'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Bill from './Bill'
 export default function MemberPage() {
     const category = useCategory()
@@ -11,7 +11,12 @@ export default function MemberPage() {
     const menu = useMenu()
     const [cart, setCart] = useState([])
     const [response, setResponse] = useState([])
-    console.log("response from memberpage", response)
+    useEffect(() => {
+        if (user && user.cart) {
+            setResponse(user.cart)
+        }
+    }, [user])
+
     return (
         <>
             <div className="lma-main-container">
@@ -19,8 +24,9 @@ export default function MemberPage() {
                 <MainMenu
                     topping={topping}
                     category={category}
-                    menu = {menu}
+                    menu={menu}
                     cart={cart} setCart={setCart}
+                    user={user}
                     response={response} setResponse={setResponse}
                 />
 
@@ -41,7 +47,7 @@ export default function MemberPage() {
 
                     </div>
 
-                    <Bill cart={cart} response={response} menu={menu} topping={topping} />
+                    <Bill user={user} cart={cart} response={response} setResponse={setResponse} menu={menu} topping={topping} />
                 </article>
             </div>
         </>

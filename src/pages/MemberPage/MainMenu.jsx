@@ -1,11 +1,10 @@
 import axios from "axios"
 import { useEffect, useState } from 'react'
-export default function MainMenu({ cart, setCart, menu, topping, category, response, setResponse }) {
+export default function MainMenu({ user, cart, setCart, menu, topping, category, setResponse, response }) {
 
     const [selectedCategory, setSelectedCategory] = useState("")
     const [count, setCount] = useState([])
     const [selectedTopping, setSelectedTopping] = useState([])
-
     useEffect(() => {
         if (menu) {
             const initialCounts = {};
@@ -85,31 +84,30 @@ export default function MainMenu({ cart, setCart, menu, topping, category, respo
 
                 // Make the POST request to the API endpoint
                 const token = window.localStorage.getItem('token')
-                console.log(payload)
                 const response = await axios.post('https://bubble-tea-cafe-api-production.up.railway.app/api/auth/add-to-cart', payload,
                     {
                         headers: {
                             Authorization: `${token}`
                         }
                     }
-                ).then(setCart([]));
-
-                // Handle the response as needed
-                setResponse(prevResponse => [...prevResponse, response.data.data]);
-                console.log('Item posted successfully:', response.data);
+                ).then((response) => {
+                    console.log('Item posted successfully:', response.data);
+                    window.location.href = "/member"
+                    setCart([])
+                });
+                
             }
         } catch (error) {
             // Handle any errors
             console.error('Error posting cart items:', error);
         }
+
     };
 
     useEffect(() => {
         postCartToAPI(cart)
-        console.log("cart",cart)
+        console.log("cart", cart)
     }, [cart])
-
-    console.log(cart)
 
     return (
         <section className="main-category">
