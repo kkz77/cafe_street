@@ -20,6 +20,7 @@ import EditTopping from './pages/DashboardPage/Topping/EditTopping'
 import DeleteTopping from './pages/DashboardPage/Topping/DeleteTopping'
 import UpdateOrderStatus from './pages/DashboardPage/Order/UpdataOrderStatus'
 import MemberPage from './pages/MemberPage/MemberPage'
+import OrderPage from './pages/MemberPage/OrderPage'
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path='/topping/editTopping/:id' element={<EditTopping />} />
             <Route path='/topping/deleteTopping/:id' element={<DeleteTopping />} />
             <Route path='/order/updateOrder/:id' element={<UpdateOrderStatus />} />
+            <Route path='/member/orderHistory' element={<OrderPage />} />
             <Route path='/user' element={<UserProfilePage />} />
             <Route path='/member' element={<MemberPage />} />
           </Route>

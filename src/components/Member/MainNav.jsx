@@ -21,6 +21,15 @@ export default function MainNav() {
                 </a>
             </div>
             <div className="nav-items">
+                <a href="/member/orderHistory">
+                    <img
+                        className="navimg"
+                        src="/src/assets/img/clipboard.png"
+                    />
+                    <p>My Orders</p>
+                </a>
+            </div>
+            <div className="nav-items">
                 <a href="/" onClick={handleLogout}>
                     <img
                         className="navimg"

@@ -75,7 +75,7 @@ function Layout() {
             console.log(error)
         }
     }
-
+    
     useEffect(() => {
         getCategory()
         getTopping()

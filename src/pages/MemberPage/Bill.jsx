@@ -60,6 +60,7 @@ export default function Bill({ menu, response, topping, setResponse }) {
                     user_id: item.user_id,
                     menu_id: item.menu_id,
                     quantity: item.quantity,
+                    total : totalItemCost,
                     topping: item.topping,
                     comment: item.comment,
                     status: "pending"
