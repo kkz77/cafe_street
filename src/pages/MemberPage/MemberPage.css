@@ -421,8 +421,11 @@ body {
             }
 
             .bills-coffee {
-                padding-left: 4%;
-                margin-bottom: 10%;
+                margin-bottom: 8%;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+
 
                 .bills-coffee-img {
                     width: 18%;
@@ -453,6 +456,23 @@ body {
                         padding: 10px 5px;
                         margin-right: 10px;
                         font-size: 0.7vw;
+                    }
+                }
+
+                .bills-delete-item{
+                    button{
+                        padding: 3px 8px;
+                        background-color: #C60200;
+                        color: #fff;
+                        border: 1px solid #fff;
+                        border-radius: 5px;
+                    }
+
+                    button:hover{
+                        background-color: #fff;
+                        color: #C60200;
+                        transition: 0.2s ease;
+                        cursor: pointer;
                     }
                 }
             }

@@ -9,7 +9,7 @@ export default function Bill({ menu, response, topping, setResponse, user }) {
     const [totalItemCost, setTotalItemCost] = useState(0)
     const [taxCost, setTaxCost] = useState(0)
     
-    const deleteItem = async () => {
+    const deleteAllItem = async () => {
         try {
             const token = window.localStorage.getItem('token')
             axios.delete(
@@ -23,6 +23,26 @@ export default function Bill({ menu, response, topping, setResponse, user }) {
                 setResponse([])
                 setTaxCost(0)
                 setTotalItemCost(0)
+                console.log("response", response)
+            })
+        }
+        catch (error) {
+            console.log(error)
+        }
+    };
+
+    const deleteItem = async (id) => {
+        try {
+            const token = window.localStorage.getItem('token')
+            axios.delete(
+                `https://bubble-tea-cafe-api-production.up.railway.app/api/auth/remove-from-cart/${id}`,
+                {
+                    headers: {
+                        Authorization: `${token}`
+                    }
+                }
+            ).then((response) => {
+                window.location.href = '/member'                
                 console.log("response", response)
             })
         }
@@ -94,6 +114,9 @@ export default function Bill({ menu, response, topping, setResponse, user }) {
                                 <small>${price[r.menu_id] * r.quantity}</small>
                             </p>
                         </div>
+                        <div className="bills-delete-item">
+                            <button onClick={()=>deleteItem(r.Id)}>X</button>
+                        </div>
                     </div>
 
                 )) : ('')
@@ -102,7 +125,7 @@ export default function Bill({ menu, response, topping, setResponse, user }) {
             {
                 removeCartRendered && response ? (
                     <div className="bills-cart">
-                        <a href="#" className="remove-cart" onClick={() => deleteItem()}>Remove Cart</a>
+                        <a href="#" className="remove-cart" onClick={() => deleteAllItem()}>Remove Cart</a>
                     </div>
                 ) : ('')
             }
