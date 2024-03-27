@@ -1,0 +1,217 @@
+    .lma-admin-main-container {
+
+        .main-category {
+            display: block;
+            background-color: rgb(244, 244, 244);
+            padding-left: 5%;
+
+            .upper-nav {
+                align-items: center;
+                width: 100%;
+                justify-content: space-between;
+                display: flex;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                background-color: white;
+            }
+
+            .upper-nav-inside {
+                width: 100%;
+                padding: 1.5%;
+            }
+
+            h1 {
+                display: inline-block;
+            }
+
+            .user-profile-link:hover {
+                opacity: 0.8;
+            }
+
+            .user-profile-img {
+                float: right;
+                border: 1px solid black;
+                vertical-align: middle;
+                width: 3%;
+                border-radius: 30px;
+            }
+
+            .search-div {
+                margin-left: 20%;
+                display: inline-block;
+            }
+
+            .search {
+                border: none;
+                padding-top: 4%;
+                padding-bottom: 5%;
+                padding-left: 6%;
+                padding-right: 7%;
+                font-size: 1.2vw;
+                width: 100%;
+                border-radius: 18px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                outline: none;
+            }
+
+            .search-icon {
+                margin-left: -3%;
+                margin-top: 0.1%;
+                padding: 0.6% 0.6%;
+                width: 2.6%;
+                position: absolute;
+            }
+        }
+
+        .item-category {
+            display: flex;
+
+            a {
+                text-decoration: none;
+            }
+
+            .item-menu-list:hover {
+                opacity: 0.8;
+                border: 1px solid brown;
+            }
+
+            .item-menu-list:active {
+                opacity: 0.5;
+                border: 1px solid rgb(112, 32, 32);
+            }
+
+            .item-menu-list {
+                margin: 10%;
+                transition: 1s;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                background-color: white;
+                width: 55%;
+                border-radius: 20px;
+                padding: 5%;
+
+                .img-category {
+                    width: 40%;
+                    vertical-align: middle;
+                    padding-right: 10%;
+                }
+
+                p4 {
+                    vertical-align: middle;
+                    display: inline-block;
+                    font-size: 1vw;
+
+                    span {
+                        color: gray;
+                        font-size: 0.8vw;
+                    }
+                }
+            }
+        }
+
+        .chart {
+            background-color: white;
+            border-radius: 1%;
+            width: 95%;
+            margin: 2.5%;
+
+            h3 {
+                padding: 1.2%;
+            }
+
+            img {
+                width: 70%;
+            }
+
+            .visit {
+                margin-top: 5%;
+                width: 27%;
+                float: right;
+                line-height: 2vw;
+
+                .visit-data {
+                    margin-bottom: 3vw;
+
+                    h4 {
+                        color: gray;
+                    }
+
+                    p {
+                        font-size: 0.9vw;
+                    }
+                }
+            }
+        }
+
+        .item-order-part {
+            background-color: white;
+            width: 95%;
+            margin: 20px 0;
+
+            .modify-table {
+                padding: 1.2vw;
+            }
+
+            h3 {
+                padding: 1.2%;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            th {
+                background-color: #893305;
+                padding: 15px;
+                color: #fff;
+            }
+
+            .avatar {
+                width: 8%;
+            }
+
+            tr {
+                text-align: center;
+            }
+
+            td {
+                padding: 20px 5px;
+                overflow-x: auto;
+
+                .update-order-btn{
+                    padding: 10px 5px;
+                    background-color:#008940;
+                    border-radius: 10px;
+                    border: 1px solid #fff;
+                    color: #fff;
+                } 
+
+                .update-order-btn:hover{
+                    background-color: #fff;
+                    color: #008940;
+                    transition: 0.2s ease-in-out;
+                    border: 1px solid #008940;
+                }
+                
+                .delete-order-btn{
+                    padding: 10px 5px;
+                    background-color:#F10000;
+                    border-radius: 10px;
+                    border: 1px solid #fff;
+                    color: #fff;
+                }
+
+                .delete-order-btn:hover{
+                    background-color: #fff;
+                    color: #F10000;
+                    transition: 0.2s ease-in-out;
+                    border: 1px solid #F10000;
+                }
+            }
+        }
+    }

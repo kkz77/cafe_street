@@ -17,7 +17,8 @@ function Layout() {
     const [topping, setTopping] = useState(null)
     const [order, setOrder] = useState(null)
     const location = useLocation()
-    const isMemberPage = location.pathname === "/member"
+    const isMemberPage = location.pathname.includes("member")
+    const isAdminPage = location.pathname.includes("dashboard")
     const getUserProfile = async () => {
         try {
             const token = window.localStorage.getItem('token')
@@ -75,7 +76,7 @@ function Layout() {
             console.log(error)
         }
     }
-    
+
     useEffect(() => {
         getCategory()
         getTopping()
@@ -91,16 +92,19 @@ function Layout() {
                     <MenuContext.Provider value={menu}>
                         <UserProfileContext.Provider value={userProfile}>
                             {
-                                !isMemberPage && (
+                                isMemberPage ? (
+                                    <Outlet />
+                                ) : 
+                                isAdminPage?(
+                                    <Outlet />
+                                ):
+                                (
                                     <>
                                         <Navbar />
                                         <Outlet />
                                         <Footer />
                                     </>
                                 )
-                            }
-                            {
-                                isMemberPage && <Outlet />
                             }
 
                         </UserProfileContext.Provider>
