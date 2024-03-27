@@ -16,8 +16,7 @@
     }
 
     .nav-items {
-        margin-bottom: 11.5px;
-        margin: auto;
+        margin-bottom: 25px;
         border: 1px solid #fff;
         border-radius: 14px;
 
@@ -33,7 +32,6 @@
             font-size: 0.8vw;
         }
 
-        margin-bottom: 15px;
     }
 
     .nav-items:hover {
@@ -42,4 +40,5 @@
         border-radius: 14px;
         transition: 0.2s;
     }
+
 }

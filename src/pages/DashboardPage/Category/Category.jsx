@@ -9,7 +9,7 @@ export default function Category() {
         <>
             <div className="category-table">
                 <AdminNavbar />
-                <div id="C5" className="item-category-part">
+                <div className="item-category-part">
                     <h3>Categories</h3>
                     <div className="modify-table">
                         <table>
@@ -34,7 +34,7 @@ export default function Category() {
                                             </td>
                                         </tr>
                                     )
-                                    )) : ('No Categories')
+                                    )) : ('No Category')
                             }
                         </table>
                     </div>

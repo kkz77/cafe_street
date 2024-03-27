@@ -22,6 +22,15 @@ export default function AdminNavbar() {
                 </a>
             </div>
             <div className="nav-items">
+                <a href="/dashboard/menu">
+                    <img
+                        className="navimg"
+                        src="/src/assets/img/clipboard.png"
+                    />
+                    <p>Menu</p>
+                </a>
+            </div>
+            <div className="nav-items">
                 <a href="/dashboard/category">
                     <img
                         className="navimg"

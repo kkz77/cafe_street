@@ -16,7 +16,7 @@ export default function DeleteMenu() {
                     }
                 }
             ).then((response)=>{
-                window.location.href = '/dashboard'
+                window.location.href = '/dashboard/menu'
                 console.log(response)
             })
         }

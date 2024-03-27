@@ -37,7 +37,7 @@ export default function Topping() {
                                             </td>
                                         </tr>
                                     )
-                                    )) : ('No Categories')
+                                    )) : ('No Topping')
                             }
                         </table>
                     </div>

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useMenu, useTopping, useUserProfile } from "../../layouts/BaseLayout";
 import axios from "axios";
+import MainNav from "../../components/Member/MainNav";
+import './OrderPage.css'
 export default function OrderPage() {
     const user = useUserProfile()
     const menu = useMenu()
@@ -44,29 +46,80 @@ export default function OrderPage() {
 
     return (
         <>
-            <div className="order-history">
-                <h1 className="order-history-header">Your Orders</h1>
-                <table className="order-table">
-                    <tr className="order-table-row">
-                        <th className="order-table-header">Menu</th>
-                        <th className="order-table-header">Quantity</th>
-                        <th className="order-table-header">Toppings</th>
-                        <th className="order-table-header">Total Price</th>
-                        <th className="order-table-header">status</th>
-                    </tr>
-                    {
-                        order ? order.map((o) =>
-                            <tr className="order-table-row" key={o.Id}>
-                                <td className="order-table-data">{menu.find(item => item.Id === o.menu_id)?.name}</td>
-                                <td className="order-table-data">{o.quantity}</td>
-                                <td className="order-table-data">{getToppingName(o.topping)}</td>
-                                <td className="order-table-data">{o.total}</td>
-                                <td className="order-table-data">{o.status}</td>
+            <MainNav />
+            <div className="order-table">
+                <div className="item-order-part">
+                    <h3>Your Pending Orders</h3>
+                    <div className="modify-table">
+                        <table>
+                            <tr>
+                                <th>Menu</th>
+                                <th>Quantity</th>
+                                <th>Toppings</th>
+                                <th>Total Price</th>
+                                <th>Status</th>
                             </tr>
-                        ) : ('')
-                    }
-                </table>
-
+                            {
+                                order ? (
+                                    order.map((o) =>
+                                    (o.status == "pending")?
+                                    (
+                                        <tr key={o.Id}>
+                                            <td>{menu.find(item => item.Id === o.menu_id)?.name}</td>
+                                            <td>{o.quantity}</td>
+                                            <td>
+                                                {getToppingName(o.topping)}
+                                            </td>
+                                            <td>
+                                                {o.total}
+                                            </td>
+                                            <td>
+                                                {o.status}
+                                            </td>
+                                        </tr>
+                                    ):('')
+                                    )) : ('No Order')
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div className="order-table">
+                <div className="item-order-part">
+                    <h3>Your Completed Orders</h3>
+                    <div className="modify-table">
+                        <table>
+                            <tr>
+                                <th>Menu</th>
+                                <th>Quantity</th>
+                                <th>Toppings</th>
+                                <th>Total Price</th>
+                                <th>Status</th>
+                            </tr>
+                            {
+                                order ? (
+                                    order.map((o) =>
+                                    (o.status == "completed")?
+                                    (
+                                        <tr key={o.Id}>
+                                            <td>{menu.find(item => item.Id === o.menu_id)?.name}</td>
+                                            <td>{o.quantity}</td>
+                                            <td>
+                                                {getToppingName(o.topping)}
+                                            </td>
+                                            <td>
+                                                {o.total}
+                                            </td>
+                                            <td>
+                                                {o.status}
+                                            </td>
+                                        </tr>
+                                    ):('')
+                                    )) : ('No Order')
+                            }
+                        </table>
+                    </div>
+                </div>
 
             </div>
         </>

@@ -24,6 +24,7 @@ import OrderPage from './pages/MemberPage/OrderPage'
 import DeleteOrder from './pages/DashboardPage/Order/DeleteOrder'
 import Category from './pages/DashboardPage/Category/Category'
 import Topping from './pages/DashboardPage/Topping/Topping'
+import Menu from './pages/DashboardPage/Menu/Menu'
 
 function App() {
   return (
@@ -38,9 +39,10 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path='/dashboard' element={<DashboardPage />} />
-            <Route path='/menu/createMenu' element={<CreateMenu />} />
-            <Route path='/menu/editMenu/:id' element={<EditMenu />} />
-            <Route path='/menu/deleteMenu/:id' element={<DeleteMenu />} />
+            <Route path='/dashboard/menu' element={<Menu/>} />
+            <Route path='/dashboard/menu/createMenu' element={<CreateMenu />} />
+            <Route path='/dashboard/menu/editMenu/:id' element={<EditMenu />} />
+            <Route path='/dashboard/menu/deleteMenu/:id' element={<DeleteMenu />} />
             <Route path='/dashboard/category' element={<Category />} />
             <Route path='/dashboard/category/createCategory' element={<CreateCategory />} />
             <Route path='/dashboard/category/editCategory/:id' element={<EditCategory />} />

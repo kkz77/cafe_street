@@ -12,7 +12,7 @@ export default function MainNav() {
                 </a>
             </div>
             <div className="nav-items">
-                <a href="/">
+                <a href="/member">
                     <img
                         className="navimg"
                         src="/src/assets/img/home.png"

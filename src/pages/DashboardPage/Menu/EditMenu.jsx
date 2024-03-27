@@ -3,6 +3,7 @@ import './CreateMenu.css'
 import { useEffect,useState } from "react"
 import { useCategory, useMenu } from "../../../layouts/BaseLayout"
 import { useParams } from "react-router-dom"
+import AdminNavbar from "../../../components/Admin/AdminNavbar"
 
 export default function EditMenu() {
     const { id } = useParams()
@@ -63,7 +64,7 @@ export default function EditMenu() {
                 }
             }
             ).then((response) => {
-                window.location.href = '/dashboard'
+                window.location.href = '/dashboard/menu'
                 console.log(response)
             })
         } catch (error) {
@@ -73,6 +74,7 @@ export default function EditMenu() {
 
     return (
         <>
+        <AdminNavbar/>
             <div className="create-menu-container">
                 <h2 className="create-menu-h2">Create Menu Item</h2>
                 <form className="create-menu-form" id="menuForm" method="post" onSubmit={handleSubmit}>

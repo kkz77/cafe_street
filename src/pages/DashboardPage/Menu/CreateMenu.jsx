@@ -2,6 +2,7 @@ import axios from "axios"
 import './CreateMenu.css'
 import { useState } from "react"
 import { useCategory } from "../../../layouts/BaseLayout"
+import AdminNavbar from "../../../components/Admin/AdminNavbar"
 
 export default function CreateMenu() {
     const category = useCategory()
@@ -43,7 +44,7 @@ export default function CreateMenu() {
                 }
             }
             ).then((response) => {
-                window.location.href = '/dashboard'
+                window.location.href = '/dashboard/menu'
                 console.log(response)
             })
         } catch (error) {
@@ -53,6 +54,7 @@ export default function CreateMenu() {
 
     return (
         <>
+            <AdminNavbar />
             <div className="create-menu-container">
                 <h2 className="create-menu-h2">Create Menu Item</h2>
                 <form className="create-menu-form" id="menuForm" method="post" onSubmit={handleSubmit}>
