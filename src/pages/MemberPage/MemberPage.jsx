@@ -4,6 +4,7 @@ import MainNav from '../../components/Member/MainNav'
 import MainMenu from './MainMenu'
 import { useEffect, useState } from 'react'
 import Bill from './Bill'
+import UpperNavbar from '../../components/Admin/UpperNavbar'
 export default function MemberPage() {
     const category = useCategory()
     const topping = useTopping()

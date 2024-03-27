@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useMenu } from "../../../layouts/BaseLayout"
 import AdminNavbar from "../../../components/Admin/AdminNavbar"
 import './Menu.css'
+import UpperNavbar from "../../../components/Admin/UpperNavbar"
 
 export default function Menu() {
     const menu = useMenu()
@@ -9,6 +10,8 @@ export default function Menu() {
         <>
             <div className="menu-table">
                 <AdminNavbar />
+                <section className="main-category">
+                <UpperNavbar />
                 <div className="item-menu-part">
                     <h3>Menu</h3>
                     <div className="modify-table">
@@ -52,7 +55,7 @@ export default function Menu() {
                         <Link className='table-btn create-menu-btn' to={`/dashboard/menu/createMenu`}>Create Menu</Link>
                     </div>
                 </div>
-
+                            </section>
             </div>
         </>
     )

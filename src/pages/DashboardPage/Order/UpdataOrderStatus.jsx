@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useOrder } from "../../../layouts/BaseLayout";
 import { useEffect, useState } from "react";
+import AdminNavbar from "../../../components/Admin/AdminNavbar";
 
 export default function updateOrderStatus() {
     const order = useOrder()
@@ -61,5 +62,9 @@ export default function updateOrderStatus() {
     useEffect(() => {
         handleSubmit(); // Call handleSubmit when the component mounts
     }, [formData]);
-    return null
+    return (
+        <>
+            <AdminNavbar />
+        </>
+    )
 }

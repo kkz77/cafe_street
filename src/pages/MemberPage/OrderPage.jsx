@@ -3,6 +3,7 @@ import { useMenu, useTopping, useUserProfile } from "../../layouts/BaseLayout";
 import axios from "axios";
 import MainNav from "../../components/Member/MainNav";
 import './OrderPage.css'
+import UpperNavbar from "../../components/Admin/UpperNavbar";
 export default function OrderPage() {
     const user = useUserProfile()
     const menu = useMenu()
@@ -47,6 +48,7 @@ export default function OrderPage() {
     return (
         <>
             <MainNav />
+            <UpperNavbar />
             <div className="order-table">
                 <div className="item-order-part">
                     <h3>Your Pending Orders</h3>
