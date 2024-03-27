@@ -15,6 +15,9 @@ export default function MainMenu({ cart, setCart, menu, topping, category }) {
         }
     }, [menu]);
 
+    const handleChange = (event) => {
+        setInputValue(event.target.value);
+      };
 
     const handlePositiveChange = (menuId, newCount) => {
         setCount(prevCount => ({
@@ -112,13 +115,6 @@ export default function MainMenu({ cart, setCart, menu, topping, category }) {
     return (
         <section className="main-category">
             <h1>Choose Category</h1>
-            <div className="search-div">
-                <input className="search" type="text" placeholder="Search " />
-                <img
-                    className="search-icon"
-                    src="https://icons.veryicon.com/png/o/commerce-shopping/small-icons-with-highlights/search-260.png"
-                />
-            </div>
 
             <div className="item-category">
                 <a href="#" onClick={() => setSelectedCategory("All")}>
@@ -196,7 +192,6 @@ export default function MainMenu({ cart, setCart, menu, topping, category }) {
                                                         ) : ("")}
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <a className="add-t-b-a" href="#" onClick={() => handleAddToCart(m.Id)}>

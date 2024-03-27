@@ -2,11 +2,13 @@ import "../App.css"
 import Banner from "../components/Banner/Banner"
 import Card from "../components/Card/Card"
 import Img_Hero from "../components/Img-Hero/Img_Hero"
-import { useMenu } from "../layouts/BaseLayout"
+import { useMenu, useUserProfile } from "../layouts/BaseLayout"
 export default function HomePage() {
+    const user = useUserProfile()
     const menu = useMenu()
     return (
         <>
+        {console.log(user?.role)}
             <div id='home' className="main-bg-img">
                 <div className="container">
                     <div className="hero">

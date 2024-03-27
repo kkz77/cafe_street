@@ -9,6 +9,7 @@ export default function OrderPage() {
     const menu = useMenu()
     const toppings = useTopping()
     const [order, setOrder] = useState([])
+    const [hasComplete, setHasComplete] = useState(false)
     const getOrderByUserId = async (id) => {
         try {
             const token = window.localStorage.getItem('token')
@@ -64,22 +65,22 @@ export default function OrderPage() {
                             {
                                 order ? (
                                     order.map((o) =>
-                                    (o.status == "pending")?
-                                    (
-                                        <tr key={o.Id}>
-                                            <td>{menu.find(item => item.Id === o.menu_id)?.name}</td>
-                                            <td>{o.quantity}</td>
-                                            <td>
-                                                {getToppingName(o.topping)}
-                                            </td>
-                                            <td>
-                                                {o.total}
-                                            </td>
-                                            <td>
-                                                {o.status}
-                                            </td>
-                                        </tr>
-                                    ):('')
+                                        (o.status == "pending") ?
+                                            (
+                                                <tr key={o.Id}>
+                                                    <td>{menu.find(item => item.Id === o.menu_id)?.name}</td>
+                                                    <td>{o.quantity}</td>
+                                                    <td>
+                                                        {getToppingName(o.topping)}
+                                                    </td>
+                                                    <td>
+                                                        {o.total}
+                                                    </td>
+                                                    <td>
+                                                        {o.status}
+                                                    </td>
+                                                </tr>
+                                            ) : ('')
                                     )) : ('No Order')
                             }
                         </table>
@@ -101,22 +102,22 @@ export default function OrderPage() {
                             {
                                 order ? (
                                     order.map((o) =>
-                                    (o.status == "completed")?
-                                    (
-                                        <tr key={o.Id}>
-                                            <td>{menu.find(item => item.Id === o.menu_id)?.name}</td>
-                                            <td>{o.quantity}</td>
-                                            <td>
-                                                {getToppingName(o.topping)}
-                                            </td>
-                                            <td>
-                                                {o.total}
-                                            </td>
-                                            <td>
-                                                {o.status}
-                                            </td>
-                                        </tr>
-                                    ):('')
+                                        (o.status == "completed") ?
+                                            (
+                                                <tr key={o.Id}>
+                                                    <td>{menu.find(item => item.Id === o.menu_id)?.name}</td>
+                                                    <td>{o.quantity}</td>
+                                                    <td>
+                                                        {getToppingName(o.topping)}
+                                                    </td>
+                                                    <td>
+                                                        {o.total}
+                                                    </td>
+                                                    <td>
+                                                        {o.status}
+                                                    </td>
+                                                </tr>
+                                            ) : ('')
                                     )) : ('No Order')
                             }
                         </table>

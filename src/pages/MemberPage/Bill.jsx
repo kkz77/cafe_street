@@ -4,10 +4,13 @@ import { useEffect, useState } from "react"
 export default function Bill({ menu, response, topping, setResponse }) {
     const [menuNames, setMenuNames] = useState([])
     const [price, setPrice] = useState([])
+    const [toppingPrice, setToppingPrice] = useState([])
     const [imageUrl, setImageUrl] = useState([])
     const [toppingNames, setToppingNames] = useState([])
     const [totalItemCost, setTotalItemCost] = useState(0)
     const [taxCost, setTaxCost] = useState(0)
+    const [totalToppingPrice, setTotalToppingPrice] = useState(0)
+    const [total, setTotal] = useState(0)
 
     const deleteAllItem = async () => {
         try {
@@ -60,7 +63,7 @@ export default function Bill({ menu, response, topping, setResponse }) {
                     user_id: item.user_id,
                     menu_id: item.menu_id,
                     quantity: item.quantity,
-                    total : totalItemCost,
+                    total: total,
                     topping: item.topping,
                     comment: item.comment,
                     status: "pending"
@@ -94,6 +97,7 @@ export default function Bill({ menu, response, topping, setResponse }) {
     useEffect(() => {
         const menuNameMap = {}
         const toppingNameMap = {}
+        const toppingPriceMap = {}
         const priceNameMap = {}
         const imageNameMap = {}
         menu ? (menu.forEach((menuItem) => {
@@ -105,22 +109,31 @@ export default function Bill({ menu, response, topping, setResponse }) {
 
         topping ? (topping.forEach((toppingItem) => {
             toppingNameMap[toppingItem.Id] = toppingItem.name
+            toppingPriceMap[toppingItem.Id] = toppingItem.price
         })) : ("")
 
         setMenuNames(menuNameMap)
         setToppingNames(toppingNameMap)
+        setToppingPrice(toppingPriceMap)
         setImageUrl(imageNameMap)
         setPrice(priceNameMap)
     }, [menu])
 
     useEffect(() => {
+        console.log(response)
         let value = 0
+        let tvalue = 0
         response ? (response.map((r) => {
-            const itemPrice = price[r.menu_id] * r.quantity
-            value += itemPrice
-            setTotalItemCost(value)
+            let itemPrice = price[r.menu_id] * r.quantity
+            r.topping ? (r.topping.map((tp) => {
+                tvalue =tvalue+ toppingPrice[tp] * r.quantity
+            })) : ('')
+            value = value + itemPrice 
         })) : ('')
+        setTotalItemCost(value)
         setTaxCost(totalItemCost * 0.1)
+        setTotalToppingPrice(tvalue)
+        setTotal(totalItemCost + taxCost+totalToppingPrice)
     }, [response, price])
 
     return (
@@ -166,10 +179,11 @@ export default function Bill({ menu, response, topping, setResponse }) {
             }
 
             <div className="bills-total">
+                <div className="bills-text"><p>Total Topping Price</p><span className="subtotal">${totalToppingPrice.toFixed(2)}</span></div>
                 <div className="bills-text"><p>SubTotal</p><span className="subtotal">${totalItemCost.toFixed(2)}</span></div>
                 <div className="bills-text"><p>Tax(10%)</p> <span className="tax">${taxCost.toFixed(2)}</span></div>
                 <hr />
-                <div className="bills-text"><p>Total</p><span className="total">${(totalItemCost + taxCost).toFixed(2)}</span></div>
+                <div className="bills-text"><p>Total</p><span className="total">${(totalItemCost + taxCost+totalToppingPrice).toFixed(2)}</span></div>
             </div>
 
             <div className="payment">

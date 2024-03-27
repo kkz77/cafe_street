@@ -51,7 +51,7 @@ export default function DashboardPage() {
                     <UpperNavbar />
 
                     <div class="item-category">
-                        <a href="#C3">
+                        <a href="/dashboard/menu">
                             <div class="item-menu-list">
                                 <img
                                     class="img-category"
@@ -63,7 +63,7 @@ export default function DashboardPage() {
                                 >
                             </div>
                         </a>
-                        <a href="#C3">
+                        <a href="/dashboard/category">
                             <div class="item-menu-list">
                                 <img
                                     class="img-category"
@@ -75,7 +75,7 @@ export default function DashboardPage() {
                                 >
                             </div>
                         </a>
-                        <a href="#C4">
+                        <a href="/dashboard">
                             <div class="item-menu-list">
                                 <img
                                     class="img-category"
@@ -87,7 +87,7 @@ export default function DashboardPage() {
                                 >
                             </div>
                         </a>
-                        <a href="#C3">
+                        <a href="/dashboard">
                             <div class="item-menu-list">
                                 <img
                                     class="img-category"

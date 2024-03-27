@@ -4,7 +4,6 @@ import MainNav from '../../components/Member/MainNav'
 import MainMenu from './MainMenu'
 import { useEffect, useState } from 'react'
 import Bill from './Bill'
-import UpperNavbar from '../../components/Admin/UpperNavbar'
 export default function MemberPage() {
     const category = useCategory()
     const topping = useTopping()
@@ -36,11 +35,7 @@ export default function MemberPage() {
                         {
                             user ? (
                                 <a className="user-profile-link" href="#">
-                                    <img
-                                        className="user-profile-img"
-                                        src="https://img.freepik.com/premium-vector/businessman-avatar-illustration-cartoon-user-portrait-user-profile-icon_118339-4382.jpg"
-                                    />
-                                    <h3 className="user-profile-text"><b>{user.username}</b></h3>
+                                    <h3 className="user-profile-text"><b>{user.username}'s Dashboard</b></h3>
                                 </a>
                             ) : ("no user information")
                         }
