@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect,useState } from "react"
 import { useTopping } from "../../../layouts/BaseLayout"
 import { useParams } from "react-router-dom"
+import AdminNavbar from "../../../components/Admin/AdminNavbar"
 
 export default function EditTopping() {
     const { id } = useParams()
@@ -51,7 +52,7 @@ export default function EditTopping() {
                 }
             }
             ).then((response) => {
-                window.location.href = '/dashboard'
+                window.location.href = '/dashboard/topping'
                 console.log(response)
             })
         } catch (error) {
@@ -61,6 +62,7 @@ export default function EditTopping() {
 
     return (
         <>
+            <AdminNavbar />
             <div className="create-menu-container">
                 <h2 className="create-menu-h2">Edit Topping Item</h2>
                 <form className="create-menu-form" id="menuForm" method="post" onSubmit={handleSubmit}>
@@ -76,7 +78,7 @@ export default function EditTopping() {
                         onChange={handleChange}
                         required />
 
-                    <button className="create-menu-button" type="submit">Add Menu Item</button>
+                    <button className="create-menu-button" type="submit">Submit</button>
                 </form>
             </div >
         </>

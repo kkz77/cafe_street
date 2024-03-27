@@ -9,7 +9,7 @@ export default function Category() {
         <>
             <div className="category-table">
                 <AdminNavbar />
-                <div id="C5" className="item-order-part">
+                <div id="C5" className="item-category-part">
                     <h3>Categories</h3>
                     <div className="modify-table">
                         <table>

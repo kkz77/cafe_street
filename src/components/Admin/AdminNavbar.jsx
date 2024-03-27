@@ -13,7 +13,7 @@ export default function AdminNavbar() {
                 </a>
             </div>
             <div className="nav-items">
-                <a href="/">
+                <a href="/dashboard">
                     <img
                         className="navimg"
                         src="/src/assets/img/home.png"
@@ -28,6 +28,15 @@ export default function AdminNavbar() {
                         src="/src/assets/img/category.png"
                     />
                     <p>Categories</p>
+                </a>
+            </div>
+            <div className="nav-items">
+                <a href="/dashboard/topping">
+                    <img
+                        className="navimg"
+                        src="/src/assets/img/topping.png"
+                    />
+                    <p>Toppings</p>
                 </a>
             </div>
             <div className="nav-items">

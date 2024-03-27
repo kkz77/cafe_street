@@ -23,6 +23,7 @@ import MemberPage from './pages/MemberPage/MemberPage'
 import OrderPage from './pages/MemberPage/OrderPage'
 import DeleteOrder from './pages/DashboardPage/Order/DeleteOrder'
 import Category from './pages/DashboardPage/Category/Category'
+import Topping from './pages/DashboardPage/Topping/Topping'
 
 function App() {
   return (
@@ -44,9 +45,10 @@ function App() {
             <Route path='/dashboard/category/createCategory' element={<CreateCategory />} />
             <Route path='/dashboard/category/editCategory/:id' element={<EditCategory />} />
             <Route path='/dashboard/category/deleteCategory/:id' element={<DeleteCategory />} />
-            <Route path='/topping/createTopping' element={<CreateTopping />} />
-            <Route path='/topping/editTopping/:id' element={<EditTopping />} />
-            <Route path='/topping/deleteTopping/:id' element={<DeleteTopping />} />
+            <Route path='/dashboard/topping' element={<Topping />} />
+            <Route path='/dashboard/topping/createTopping' element={<CreateTopping />} />
+            <Route path='/dashboard/topping/editTopping/:id' element={<EditTopping />} />
+            <Route path='/dashboard/topping/deleteTopping/:id' element={<DeleteTopping />} />
             <Route path='/dashboard/order/updateOrder/:id' element={<UpdateOrderStatus />} />
             <Route path='/dashboard/order/deleteOrder/:id' element={<DeleteOrder />} />
             <Route path='/member/orderHistory' element={<OrderPage />} />

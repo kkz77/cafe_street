@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
+import AdminNavbar from "../../../components/Admin/AdminNavbar"
 
 export default function CreateTopping() {
     const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ export default function CreateTopping() {
         e.preventDefault()
         const price = parseFloat(formData.price);
 
-        const toppingData= {
+        const toppingData = {
             name: formData.name,
             price: price, // Send price as float instead of string
         };
@@ -33,7 +34,7 @@ export default function CreateTopping() {
                 }
             }
             ).then((response) => {
-                window.location.href = '/dashboard'
+                window.location.href = '/dashboard/topping'
                 console.log(response)
             })
         } catch (error) {
@@ -43,8 +44,9 @@ export default function CreateTopping() {
 
     return (
         <>
+            <AdminNavbar />
             <div className="create-menu-container">
-                <h2 className="create-menu-h2">Create Menu Item</h2>
+                <h2 className="create-menu-h2">Create Topping Item</h2>
                 <form className="create-menu-form" id="menuForm" method="post" onSubmit={handleSubmit}>
                     <label className="create-menu-label" htmlFor="name">Name:</label>
                     <input className="create-menu-input" type="text" id="name" name="name"
@@ -56,9 +58,9 @@ export default function CreateTopping() {
                     <input className="create-menu-input" type="number" id="price" name="price" min="0" step="0.01"
                         value={formData.price}
                         onChange={handleChange}
-                        required /> 
+                        required />
 
-                    <button className="create-menu-button" type="submit">Add Menu Item</button>
+                    <button className="create-menu-button" type="submit">Add Topping Item</button>
                 </form>
             </div >
         </>
