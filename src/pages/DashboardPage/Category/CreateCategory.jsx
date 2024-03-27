@@ -1,6 +1,7 @@
 import axios from "axios"
 import './Category.css'
 import { useState } from "react"
+import AdminNavbar from "../../../components/Admin/AdminNavbar"
 
 export default function CreateCategory() {
     const [name, setName] = useState("")
@@ -18,7 +19,7 @@ export default function CreateCategory() {
                 }
                 }
                 ).then((response) => {
-                    window.location.href = '/dashboard'
+                    window.location.href = '/dashboard/category'
                     console.log(response)
                 })
         } catch (error) {
@@ -28,6 +29,7 @@ export default function CreateCategory() {
 
     return (
         <>
+            <AdminNavbar />
             <div className="create-menu-container">
                 <h2 className="create-menu-h2">Create Category Item</h2>
                 <form className="create-menu-form" id="menuForm" method="post" onSubmit={handleSubmit}>

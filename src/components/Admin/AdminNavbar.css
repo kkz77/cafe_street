@@ -17,7 +17,6 @@
 
     .nav-items {
         margin-bottom: 11.5px;
-        width: 66%;
         margin: auto;
         border: 1px solid #fff;
         border-radius: 14px;
@@ -27,7 +26,7 @@
         }
 
         .navimg {
-            width: 65%;
+            width: 50%;
         }
 
         p {

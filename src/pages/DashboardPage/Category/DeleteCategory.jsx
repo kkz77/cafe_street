@@ -16,7 +16,7 @@ export default function DeleteCategory() {
                     }
                 }
             ).then((response)=>{
-                window.location.href = '/dashboard'
+                window.location.href = '/dashboard/category'
                 console.log(response)
             })
         }

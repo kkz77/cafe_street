@@ -3,6 +3,7 @@ import './Category.css'
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useCategory } from "../../../layouts/BaseLayout"
+import AdminNavbar from "../../../components/Admin/AdminNavbar"
 
 export default function EditCategory() {
     const category = useCategory()
@@ -33,7 +34,7 @@ export default function EditCategory() {
                     }
                 }
             ).then((response) => {
-                window.location.href = '/dashboard'
+                window.location.href = '/dashboard/category'
                 console.log(response)
             })
         } catch (error) {
@@ -43,6 +44,7 @@ export default function EditCategory() {
 
     return (
         <>
+            <AdminNavbar />
             <div className="create-menu-container">
                 <h2 className="create-menu-h2">Edit Category Item</h2>
                 <form className="create-menu-form" id="menuForm" method="post" onSubmit={handleSubmit}>
